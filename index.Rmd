@@ -46,7 +46,7 @@ Contact: <br>
 <br> <img src="images/github.png" width="20px"> GitHub: [b-jorges](https://github.com/b-jorges)
 <br> <img src="images/OSF.png" width="20px"> OSF: [Bjoern Joerges](https://osf.io/qrtbh/)
 <br> <img src="images/twitter.png" width="20px"> Twitter: [b_jorges](https://osf.io/qrtbh/)
-<br><img src="images/me.png" width="300px">
+<br><img src="images/me.PNG" width="300px">
 </float_side>
 
 
