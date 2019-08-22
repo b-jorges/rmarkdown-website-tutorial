@@ -26,6 +26,8 @@ output:
 
 <br>
 
+If you prefer a PDF version of my CV press [here](https://github.com/b-jorges/rmarkdown-website-tutorial/raw/gh-pages/CV.pdf) to download.
+
 # CURRICULUM VITAE
 
 ## Personal & Contact Data
@@ -186,7 +188,7 @@ I have furthermore a strong interest in Philosophy of Science and I am a defende
 
 - Institute of Neuroscience, University of Barcelona
 
-- PRISMA – Asociación para la Diversidad Afectivo-Sexual y de Género en Ciencia, Tecnología e Innovación
+- [PRISMA](./PRISMA.html) – Asociación para la Diversidad Afectivo-Sexual y de Género en Ciencia, Tecnología e Innovación
 
 - Out in Science, Technology, Engineering, and Mathematics (oSTEM)
 

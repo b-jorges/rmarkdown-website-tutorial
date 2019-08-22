@@ -1,5 +1,5 @@
 ---
-title: "Björn Jörges"
+# title: "Björn Jörges"
 #  author:  "[Björn Jorges](https://github.com/jules32) at [NCEAS](https://www.nceas.ucsb.edu/), 12/14/16"
 output:
   html_document:
@@ -15,7 +15,7 @@ output:
 figure_side {
   float: right;
   width: 30%;
-  text-align: center;
+  text-align: left;
   font-style: italic;
   font-size: smaller;
   text-indent: 0;
@@ -39,14 +39,16 @@ figurecaption{
 
 <br>
 
+# Björn Jörges
 
 <figure_side style="float: left">
-Contact: <br>
+<b font_align="center"> Contact: </b> <br>
 &#x2709; e-mail : [Bjoern_joerges@hotmail.de](mailto:Bjoern_joerges@hotmail.de)
 <br> <img src="images/github.png" width="20px"> GitHub: [b-jorges](https://github.com/b-jorges)
 <br> <img src="images/OSF.png" width="20px"> OSF: [Bjoern Joerges](https://osf.io/qrtbh/)
 <br> <img src="images/twitter.png" width="20px"> Twitter: [b_jorges](https://osf.io/qrtbh/)
 <br><img src="images/me.PNG" width="300px">
+<br>
 </float_side>
 
 
