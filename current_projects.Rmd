@@ -1,0 +1,28 @@
+---
+# output:
+#   html_document:
+#     toc: true
+#     toc_float: true
+#     fig_pos: "H"
+---
+
+<br>
+
+# Current Projects
+
+## Do humans have an internal model of Air Drag?
+
+We (kinda) know that humans represent physical information about their environment, e. g. the size of objects they interact with, the gravitational pull on earth, … but is air drag among these physical properties? We think it should be. To be honest, it wouldn’t make much sense if we didn’t … but well, we’re scientists and we need to check!
+
+I am developing this project together with [Borja Aguado](https://osf.io/tj628/) under supervision of Dr. Joan López-Moliner.
+
+We will soon finish the pre-registration, which will be available in my OSF profile.
+
+
+## Does earth-gravity conformant motion facilitate motion duration estimation?
+
+It has been shown that earth gravity congruent motion benefitted motion duration estimates for 2D motion in front of a pictorial background. We would expect the same for more naturalistic stimuli (parabolic motion in 3D in a rich environment). And that’s what we’re testing.
+
+I am developing this project together with Dr. Barbara LaScaleia, under supervision of Dr. Myrka Zago.
+
+---

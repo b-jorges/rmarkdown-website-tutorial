@@ -1,5 +1,5 @@
 ---
-title: "Björn Jorges"
+title: "Björn Jörges"
 #  author:  "[Björn Jorges](https://github.com/jules32) at [NCEAS](https://www.nceas.ucsb.edu/), 12/14/16"
 output:
   html_document:
@@ -36,13 +36,20 @@ figurecaption{
   text-align: justify;
 }
 </style>
- 
- 
+
+<br>
+
 
 <figure_side style="float: left">
-Contact: &#x2709; e-mail : [Bjoern_joerges@hotmail.de](mailto:Bjoern_joerges@hotmail.de)<br>GitHub: [b-jorges](https://github.com/b-jorges)<br>OSF: [Bjoern Joerges](https://osf.io/qrtbh/)<br><img src="images/reshulon.png" width="300px">
+Contact: <br>
+&#x2709; e-mail : [Bjoern_joerges@hotmail.de](mailto:Bjoern_joerges@hotmail.de)
+<br> <img src="images/github.png" width="20px"> GitHub: [b-jorges](https://github.com/b-jorges)
+<br> <img src="images/OSF.png" width="20px"> OSF: [Bjoern Joerges](https://osf.io/qrtbh/)
+<br> <img src="images/twitter.png" width="20px"> Twitter: [b_jorges](https://osf.io/qrtbh/)
+<br><img src="images/me.png" width="300px">
 </float_side>
 
----
 
-Hello World!
+My name is Björn Jörges, I am finishing my PhD at University of Barcelona. In October, I am starting my PostDoc at the VISTA Institute at York University, Toronto. I study visual perception of motion, self-motion and variations over these themes.
+
+---
