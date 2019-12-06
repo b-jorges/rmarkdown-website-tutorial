@@ -45,9 +45,9 @@ Date and place of birth: <br>
 
 <div class="column-right">
 Björn Jörges <br>
-Carrer de Córsega 85, 2°3, 08029 Barcelona <br>
-0034 666 776675 <br>
-[b_jorges@ub.edu](mailto:b_jorges@ub.edu) <br>
+211 Queen Street East, Apt 1 <br>
++1 647 550 2495 <br>
+[bjoerges@yorku.ca](mailto:bjoerges@yorku.ca) <br>
 German <br>
 23 of June 1989, Schweinfurt, Germany <br>
 </div>
@@ -70,10 +70,22 @@ German <br>
 
 <div class="row">
   <div class="col-md-4" markdown ="1">
-  From 03/2016:
+  From 10/2019:
   </div>
   <div class="col-md-8" markdown ="1">
-  PhD Research position at the Department of Cognition, Development and Psychology of Education, Faculty of Psychology, University of Barcelona in Barcelona, Spain
+  PostDoc  position at the Center for Vision Research, York University, Toronto, Canada, funded by the Canadian Space Agency
+  </div>
+</div>
+
+<br>
+
+<div class="row">
+  <div class="col-md-4" markdown ="1">
+  03/2016 - 09/2019:
+  </div>
+  <div class="col-md-8" markdown ="1">
+  PhD Research position at the Department of Cognition, Development and Psychology of Education, Faculty of Psychology, University of Barcelona in Barcelona, Spain <br>
+  Degree awarded: PhD in Cognitive Science and Language "Cum Laude"  
   </div>
 </div>
 
@@ -154,6 +166,8 @@ I have furthermore a strong interest in Philosophy of Science and I am a defende
 
 ## Administrative Experience
 
+- Head of the Organizing Committee for PRISMA Conference 2020 on Afective and Sexual Diversity in STEM in Madrid, Spain
+
 
 - Director for Science and Research at the Spanish LGBTIQA+ STEM association PRISMA (starting 2019)
 
@@ -196,7 +210,7 @@ I have furthermore a strong interest in Philosophy of Science and I am a defende
 
 - German (Native), English/Spanish/Portuguese (near Native), Catalan/Italian (Proficient), French (Basic knowledge)
 
-- Data Analysis in R (Proficient), Experimental Control Flows in Python/PsychoPy (Proficient)
+- Data Analysis in R (Proficient), Experimental Control Flows in Python/PsychoPy/Unity+C# (Proficient)
 
 - Member of the LGBT+ sports organization Panteres Grogues (2013 – 2019) in Barcelona, Spain, including participation as player in the 2nd Division of the Catalan Volleyball League (2016 – 2019)
 
