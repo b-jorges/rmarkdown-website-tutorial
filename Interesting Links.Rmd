@@ -30,6 +30,8 @@
 [PhD researchers seem to learn a lot from PostDocs in their lab](https://www.pnas.org/content/116/42/20910)<br>
 [Tidystats: help copy stats from R into Word](https://twitter.com/willemsleegers/status/1176395769391267840)<br>
 [If we have to do peer review, it should be triple anonymous](https://link.springer.com/article/10.1007%2Fs11098-017-0895-4)<br>
+[How trustworthy are LMER confidence intervals from effects package](https://stats.stackexchange.com/questions/117641/how-trustworthy-are-the-confidence-intervals-for-lmer-objects-through-effects-pa)<br>
+[Hail the impossible: p-values, evidence, and likelihood.](https://www.ncbi.nlm.nih.gov/pubmed/21077903)<br>
 <br>
 
 ## To-Read List
