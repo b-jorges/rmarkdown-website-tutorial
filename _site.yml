@@ -10,6 +10,8 @@ navbar:
       href: papers.html
     - text: "PRISMA"
       href: PRISMA.html
+    - text: "Interesting Links"
+      href: Interesting Links.html
 output_dir: "."
 output:
   html_document:

@@ -1,0 +1,70 @@
+---
+# output:
+#   html_document:
+#     toc: true
+#     toc_float: true
+#     fig_pos: "H"
+---
+
+<br>
+
+# Interesting Links
+<br>
+
+## Statistics & Open Science
+[Equivalence testing for Mixed Models](https://pedermisager.netlify.com/post/mixed_model_equivalence/)<br>
+[Zotero plugin that shows PubPeer comments](https://github.com/PubPeerFoundation/pubpeer_zotero_plugin)<br>
+[R package for browser-based behavioural experiments](https://github.com/djnavarro/jaysire)<br>
+[Twitter thread on Linear Models](https://twitter.com/allison_horst/status/1197690995510407169)<br>
+[Post publication review instead of peer review](https://elifesciences.org/inside-elife/e9091cea/peer-review-new-initiatives-to-enhance-the-value-of-elife-s-process)<br>
+[We need good theory, else everything is kind of naught](https://t.co/Vrf8x6Hock?amp=1)<br>
+[How to generate Hypotheses?](https://docs.lib.purdue.edu/cgi/viewcontent.cgi?article=1197&context=jps) + [Twitter thread on the paper](https://twitter.com/IrisVanRooij/status/1121853158270042115)<br>
+[Function to build up ggplots layer by layer](https://twitter.com/ralfer/status/1189512501479784448)<br>
+[Pragmatic steps for inclusivity in modern scholarly research](https://opensciencemooc.eu/community/2019/10/17/inclusivity/)<br>
+[Everything is just Linear Models](https://lindeloev.github.io/tests-as-linear/)<br>
+[Effect size estimates from pilot studies may be inaccurate](https://www.sciencedirect.com/science/article/pii/S002210311630230X)<br>
+[data.table is like super fast](https://twitter.com/Guru_GyanKhoji/status/1183642473051983872)<br>
+[Draw Dataset and download values](https://twitter.com/fishnets88/status/1180147520850321408)<br>
+[Diagnostic plots for LMM residuals](https://twitter.com/patilindrajeets/status/1134821489499357184)<br>
+[Its SO important to distinguish between exploratory and confirmatory results](https://twitter.com/dsquintana/status/1181860481402884096)<br>
+[PhD researchers seem to learn a lot from PostDocs in their lab](https://www.pnas.org/content/116/42/20910)<br>
+[Tidystats: help copy stats from R into Word](https://twitter.com/willemsleegers/status/1176395769391267840)<br>
+[If we have to do peer review, it should be triple anonymous](https://link.springer.com/article/10.1007%2Fs11098-017-0895-4)<br>
+<br>
+
+## To-Read List
+[Is there empirical support for probabilistic mental representations? A case within visual perception](https://psyarxiv.com/4ap3f/)<br>
+[Ten simple rules for the computational modeling of behavioral data](https://elifesciences.org/articles/49547v1)<br>
+[How to generate Hypotheses?](https://docs.lib.purdue.edu/cgi/viewcontent.cgi?article=1197&context=jps)<br>
+[Intense Beauty Requires Intense Pleasure](https://www.frontiersin.org/articles/10.3389/fpsyg.2019.02420/full)<br>
+[Dissociable roles for the ventral and dorsal medial prefrontal cortex in cue-guided risk/reward decision making](https://www.nature.com/articles/s41386-019-0557-7#Bib1)<br>
+[Speed change discrimination for motion in depth using constant world and retinal speeds](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0214766)<br>
+[Working memory as persistent neural activity](https://psyarxiv.com/jh6e3/)<br>
+[Citation counts and journal impact factors do not capture research quality in the behavioral and brain sciences](https://psyarxiv.com/9g5wk/)<br>
+[Connectionism: past, present and future](https://link.springer.com/article/10.1007/BF00139193)<br>
+[Perceptual Awareness and Active Inference](https://t.co/l6qxPUizBK?amp=1)<br>
+<br>
+
+## LGBTIQA+ & gender issues
+[Website of PRISMA Ciencia](prismaciencia.org)<br>
+[Women speak less if men speak first](https://twitter.com/GrrlScientist/status/940546904114499584)<br>
+[Philosophy Tube – Queer](https://www.youtube.com/watch?v=5Hi6j2UXEZM)<br>
+[Contrapoints – Autogynephilia](https://www.youtube.com/watch?v=6czRFLs5JQo&t=47s)<br>
+[Merriam Webster adds "they" as singular pronoun](https://www.merriam-webster.com/dictionary/they)<br>
+[Supporting sex workers is feminist](https://aeon.co/ideas/lolita-understood-that-some-sex-is-transactional-so-did-i)<br>
+[Geniusses-genii-geni are 100% overrated](https://medium.com/@ReadMoreScience/sorry-but-male-geniuses-are-replaceable-8cbd53a8c2df)<br>
+<br>
+
+## Odds and ends
+[Screen use & development](https://theconversation.com/stop-worrying-about-screen-time-its-your-childs-screen-experience-that-matters-118610)<br>
+[Mindfulness & Capitalism](https://www.theguardian.com/lifeandstyle/2019/jun/14/the-mindfulness-conspiracy-capitalist-spirituality)<br>
+[Visualization of the MYRIAD of cognitive biases going on in ours brains](https://twitter.com/jayvanbavel/status/1188454749445722112/photo/1)<br>
+[How to behave when you observe harassment](https://www.buzzfeed.com/ryanhatesthis/someone-made-a-guide-for-what-to-do-when-you-see-islamophobi)<br>
+[Maximizing your Slut Impact: an Overly Analytical Guide to Camgirls](https://knowingless.com/2018/11/19/maximizing-your-slut-impact-an-overly-analytical-guide-to-camgirling/)<br>
+[A Prospective Investigation of the Decision to Open Up a Romantic Relationship](https://osf.io/5fxsk/)<br>
+[Early career setbacks can augment future impact](https://twitter.com/dashunwang/status/1179056054484819969)<br>
+[If people who dont need cars dont use cars, cities become more accessible for those who do](https://twitter.com/cathleenogrady/status/1177184354726031361)<br>
+[Laziness Does Not Exist](https://humanparts.medium.com/laziness-does-not-exist-3af27e312d01)<br>
+
+
+---
