@@ -98,7 +98,6 @@ German <br>
   </div>
   <div class="col-md-8" markdown ="1">
   Middle European Interdisciplinary Master’s Program in Cognitive Science at University of Vienna in Vienna, Austria <br>
-  Degree awarded: Master of Arts with an average grade of 8.3 (on a scale from “0-4 – Suspended” to “10 – With honors”)
   </div>
 </div>
 
