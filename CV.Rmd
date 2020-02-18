@@ -1,12 +1,13 @@
 ---
 output:
+  pdf_document:
+    toc: yes
   html_document:
-    toc: true
-    toc_float: true
-    fig_pos: "H"
+    fig_pos: H
     includes:
-      after_body: 
-        - _footer.html
+      after_body: _footer.html
+    toc: yes
+    toc_float: yes
 ---
 
 <style>
@@ -30,6 +31,8 @@ If you prefer a PDF version of my CV press [here](https://github.com/b-jorges/rm
 
 # CURRICULUM VITAE
 
+<br>
+
 ## Personal & Contact Data
 
 <div class="column-left">
@@ -45,12 +48,14 @@ Date and place of birth: <br>
 
 <div class="column-right">
 Björn Jörges <br>
-211 Queen Street East, Apt 1 <br>
+211 Queen Street East, Apt 1, Toronto M5A 1A2, Canada <br>
 +1 647 550 2495 <br>
 [bjoerges@yorku.ca](mailto:bjoerges@yorku.ca) <br>
 German <br>
 23 of June 1989, Schweinfurt, Germany <br>
 </div>
+
+<br>
 
 <style>
   .col2 {
@@ -65,6 +70,8 @@ German <br>
   }
 </style>
 
+
+
 ## Education and Academic Positions
 
 
@@ -73,7 +80,7 @@ German <br>
   From 10/2019:
   </div>
   <div class="col-md-8" markdown ="1">
-  PostDoc  position at the Center for Vision Research, York University, Toronto, Canada, funded by the Canadian Space Agency
+  PostDoc position at the Center for Vision Research, York University, Toronto, Canada, funded by the Canadian Space Agency
   </div>
 </div>
 
@@ -85,7 +92,7 @@ German <br>
   </div>
   <div class="col-md-8" markdown ="1">
   PhD Research position at the Department of Cognition, Development and Psychology of Education, Faculty of Psychology, University of Barcelona in Barcelona, Spain <br>
-  Degree awarded: PhD in Cognitive Science and Language "Cum Laude"  
+  Degree awarded: PhD in Cognitive Science and Language "Sobresaliente/Cum Laude"  
   </div>
 </div>
 
@@ -131,50 +138,64 @@ Degree awarded: Bachelor of Arts with an average grade of 1.3 (on a scale from �
 
 ## Research focus area
 
-My research is focused on the role of internalized knowledge of earth gravity in visual perception.
+My research is focused on the role of internalized knowledge of earth gravity in visual perception and the interaction between self-motion and the visual perception of objects in our environment.
 
 I have furthermore a strong interest in Philosophy of Science and I am a defender of Open Science practices, as well as a proud member of the LGBTQ+ community.
 
+<br>
+
 ## Conferences and Workshops
 
-- Poster presentation in Visual Perception entitled “Earth gravity-congruent motion benefits pursuit gain for parabolic trajectories” at the 2019 Annual Meeting of the Vision Sciences Society
+- Poster presentation in Visual Perception entitled “Incomplete Compensation for Visual Self-Motion in the Perception of Object Velocity" presented at 
+  - the 2020 Annual Meeting of the vision Science Society (VSS 2020)  
+  - the LGBTQ+ STEMinar 2020 at University of Birmingham, United Kingdom
 
-- Poster presentation in Visual Perception entitled “Moderate Influence of Certainty about Target Size on Visual Gravity Judgements” at the 2018 Annual Meeting of the Vision Sciences Society
+- Poster presentation in Visual Perception entitled “Earth gravity-congruent motion benefits pursuit gain for parabolic trajectories” presented at 
+  - the 2019 Annual Meeting of the Vision Sciences Society (VSS 2019)
+  - the LGBTQ+ STEMinar 2019 at the Institute of Physics, London, United Kingdom
+  
+- Poster presentation in Visual Perception entitled “Moderate Influence of Certainty about Target Size on Visual Gravity Judgements” at the 2018 Annual Meeting of the Vision Sciences Society (VSS 2018)
 
-- Oral presentation entitled “Challenges of LGBTQ+ persons in Academia” at the 1 st LGBTQ+ in STEM Day at University of Barcelona
+- Oral presentation entitled “Challenges of LGBTQ+ persons in Academia” at the 1st LGBTQ+ in STEM Day at University of Barcelona
 
-- Poster Presentation in Visual Perception entitled “Decision Variables in Visual Gravity Judgements: Evidence from Simulating the Decision Process” at the 40th European Conference on Visual Perception ECVP 2017
+- Poster Presentation in Visual Perception entitled “Decision Variables in Visual Gravity Judgements: Evidence from Simulating the Decision Process” at the 40th European Conference on Visual Perception (ECVP 2017)
 
 - Poster presentation in Philosophy of Science entitled “Nothing New under the Sun: Problem of Induction still not Solved” at the Middle European Interdisciplinary Conference in Cognitive Science 2017
 
 - Poster presentation in Visual Perception entitled “Temporal derivative of the elevation angle as a cue for visually perceived gravity” at the 2017 Annual Meeting of the Vision Sciences Society
 
-- Talk in Terror Management Theory entitled “Do Scientific Convictions Serve as a Buffer against Death Anxiety?” at the Workshop on Experimental Philosophy of the Berlin School of Mind and Brain
+- Oral Presentation in Terror Management Theory entitled “Do Scientific Convictions Serve as a Buffer against Death Anxiety?” at the Workshop on Experimental Philosophy of the Berlin School of Mind and Brain
 
+<br>
 
 ## Publications
 
-- Jörges, B., & López-Moliner, J. (2019). Earth-Gravity Congruent Motion Benefits Visual Gain for Parabolic Trajectories Methods. BioArxiv, 547497. https://doi.org/https://doi.org/10.1101/547497 (also submitted for review at Scientific Reports)
+- Jörges, B., & López-Moliner, J. (2019). Earth-Gravity Congruent Motion Facilitates Ocular Control for Pursuit of Parabolic Trajectories. Scientific Reports, 9(1), 1–13. https://doi.org/10.1038/s41598-019-50512-6
 
 
-- Jörges, B., Hagenfeld, L., & López-Moliner, J. (2018). The use of visual cues in gravity judgements on parabolic motion. Vision Research, 149, 47–58. https://doi.org/10.1016/J.VISRES.2018.06.002
+- Jörges, B., Hagenfeld, L., & López-Moliner, J. (2018). The use of Visual Cues in Gravity Judgements on Parabolic Motion. Vision Research, 149, 47–58. https://doi.org/10.1016/J.VISRES.2018.06.002
 
 
 - Jörges, B., & López-Moliner, J. (2017). Gravity as a Strong Prior: Implications for Perception and Action. Frontiers in Human Neuroscience, 11(203). https://doi.org/10.3389/fnhum.2017.00203
 
+### Currently under Review
+
+- Jörges, B., Harris, L. (Forthcoming). Object Speed Perception During Lateral Self-Motion. Attention, Perception and Psychophysics. Stage one Registered Report.
+
+<br>
 
 ## Administrative Experience
 
 - Head of the Organizing Committee for PRISMA Conference 2020 on Afective and Sexual Diversity in STEM in Madrid, Spain
 
 
-- Director for Science and Research at the Spanish LGBTIQA+ STEM association PRISMA (starting 2019)
+- Director for Science and Research at the Spanish Association for LGBTIQA+ Individuals in Science, Technology and Innovation PRISMA (2019 until now)
 
 
 - Member of the 3rd PhD Workshop of the Institute of Neuroscience (2018) PhD committee at University of Barcelona in Barcelona, Spain
 
 
-- Main Organizer of the 1 st LGBTQ+ in STEM Day at University of Barcelona, in Barcelona, Spain (2018)
+- Main Organizer of the 1st LGBTQ+ in STEM Day at University of Barcelona, in Barcelona, Spain (2018)
 
 
 - Member of the 2nd PhD Workshop of the Institute of Neuroscience (2017) PhD committee at University of Barcelona in Barcelona, Spain
@@ -182,18 +203,22 @@ I have furthermore a strong interest in Philosophy of Science and I am a defende
 
 - Member of the Council of the Department of Cognition, Development and Psychology of Education (starting 2016) at University of Barcelona in Barcelona, Spain
 
+<br>
 
 ## Collaborations and Internships
 
 
 - PhD Research Internships with Myrka Zago at Santa Lucia Foundation, Rome, Italy, developing a project on motion time discrimination for gravitational parabolic movement (July – October 2017 and September/October 2018)
 
+<br>
 
 ## Funding
 
+- Travel Award ACI 2017-2 issued by the Institute of Neuroscience, University of Barcelona, Spain, for participation in the European Conference for Visual Perception 2018 in Berlin, Germany
 
 - PhD scholarship “Ajuts per a la contractació de personal 753 investigador novell (FI-2016)” from the Catalan goverment for a period of three years (2016 – 2019)
 
+<br>
 
 ## Professional Memberships
 
@@ -205,11 +230,15 @@ I have furthermore a strong interest in Philosophy of Science and I am a defende
 
 - Out in Science, Technology, Engineering, and Mathematics (oSTEM)
 
+<br>
+
 ## Further Skills and Information
 
 - German (Native), English/Spanish/Portuguese (near Native), Catalan/Italian (Proficient), French (Basic knowledge)
 
 - Data Analysis in R (Proficient), Experimental Control Flows in Python/PsychoPy/Unity+C# (Proficient)
+
+- Open Science workflows (Preregistration, Registered Reports, Open Data and Open Code with Open Science Foundation and GitHub)
 
 - Member of the LGBT+ sports organization Panteres Grogues (2013 – 2019) in Barcelona, Spain, including participation as player in the 2nd Division of the Catalan Volleyball League (2016 – 2019)
 
