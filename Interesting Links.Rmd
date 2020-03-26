@@ -32,6 +32,37 @@
 [If we have to do peer review, it should be triple anonymous](https://link.springer.com/article/10.1007%2Fs11098-017-0895-4)<br>
 [How trustworthy are LMER confidence intervals from effects package](https://stats.stackexchange.com/questions/117641/how-trustworthy-are-the-confidence-intervals-for-lmer-objects-through-effects-pa)<br>
 [Hail the impossible: p-values, evidence, and likelihood.](https://www.ncbi.nlm.nih.gov/pubmed/21077903)<br>
+[A New Frontier for Studying Within-Person Variability: Bayesian Multivariate Generalized Autoregressive Conditional Heteroskedasticity Models](https://github.com/ph-rast/bmgarch)<br>
+[Mixed Models with Julia are great](https://twitter.com/DrLearnasaurus/status/1237345289511600133)<br>
+[No really, Mixed Models with Julia are great!](https://twitter.com/kleinschmidt/status/1229876425252986880)<br>
+[Comparing Gaussian graphical models with the posterior predictive distribution and Bayesian model selection](https://twitter.com/wdonald_1985/status/1237150761978490881)<br>
+[Practical Methodological Reform Needs Good Theory](https://psyarxiv.com/jcs6e)<br>
+[performance – a R package to check LMMs](https://twitter.com/patilindrajeets/status/1234873716141690880)<br>
+[A WHOLE BUNCH of interesting metascience stuff, curated by Berna Devezer](https://twitter.com/zerdeve/status/1234906668036608000)<br>
+[ANOTHER WHOLE BUNCH of metascience](https://twitter.com/EikoFried/status/1234459788744052736)<br>
+[Theory before the test: How to build high-verisimilitude explanatory theories in psychological science](https://psyarxiv.com/7qbpr)<br>
+[Preregistration in Infant Research](https://psyarxiv.com/es2gx)<br>
+[On Post-Publication Peer Review](https://twitter.com/GuyProchilo/status/1233111066546262019)<br>
+[A Shiny App for Power Analyses for Structural Equation Models](https://twitter.com/andrewang91/status/1232344836717473792)<br>
+[Synthetic Data Sets to Make Sensitive Data Publicly Available](https://twitter.com/dsquintana/status/1231585168076525569)<br>
+[People don't seem to share their raw data, even if they state they would](https://twitter.com/tsuyomiyakawa/status/1230672758163402752)<br>
+[Pupillometry for R](https://twitter.com/samhforbes/status/1083410941700726784)<br>
+[Patchwork - R package to lay out ggplot panels](https://twitter.com/LittleMissData/status/1229176433123168256)<br>
+[Dorothy Fisher on the Reproducibility Crisis](https://www.youtube.com/watch?v=v778svukrtU&feature=youtu.be)<br>
+[Model Explanation Versus Model-Induced Explanation](https://t.co/PtkjrVzLnF?amp=1)<br>
+[The neural basis of predictive pursuit](https://www.nature.com/articles/s41593-019-0561-6)<br>
+[An excess of positive results: Comparing the standard Psychologyliterature with Registered Reports](https://psyarxiv.com/p6e9c)<br>
+[Do Effect Sizes in Psychology Laboratory Experiments Mean Anything in Reality?](https://psyarxiv.com/mpw4t/)<br>
+[The anova() function in R](https://twitter.com/WeAreRLadies/status/1223790298024726528)<br>
+[The standard Cohen's d is not robust](https://twitter.com/GuyProchilo/status/1222967054212521989)<br>
+[Power Analyses for Equivalence Testing](https://twitter.com/GuyProchilo/status/1222601933229297670)<br>
+[hypr: An R package for hypothesis-driven contrast coding](https://psyarxiv.com/cqzdx/)<br>
+[A Python package for simulating evidence accumulation](https://twitter.com/TraversEoin/status/1220306317052665856)<br>
+[An Introduction to Bayesian Multilevel Models Using brms: A Case Study of Gender Effects on Vowel Variability in Standard Indonesian](https://psyarxiv.com/guhsa/)<br>
+[Confounding in studies on metacognition: a preliminary causal analysis framework](https://www.psycharchives.org/handle/20.500.12034/2338)<br>
+[Robust Outlier Detection using the T Distribution](http://eointravers.com/post/outliers/)<br>
+[psychTestR: An R package for designing and conducting behavioural psychological experiments](https://twitter.com/PsyArXivBot/status/1216403018050043904)<br>
+[A R package for simulating data sets](https://twitter.com/LisaDeBruine/status/1211322100360925184)<br>
 <br>
 
 ## To-Read List
@@ -45,7 +76,26 @@
 [Citation counts and journal impact factors do not capture research quality in the behavioral and brain sciences](https://psyarxiv.com/9g5wk/)<br>
 [Connectionism: past, present and future](https://link.springer.com/article/10.1007/BF00139193)<br>
 [Perceptual Awareness and Active Inference](https://t.co/l6qxPUizBK?amp=1)<br>
+[Limits of perception and richness of behaviour: Dissociating implicit and explicit ensemble representations](https://psyarxiv.com/3y4pz/)<br>
+[Intuitive physical reasoning about objects’ masses transfers to a visuomotor decision task consistent with Newtonian physics](https://www.biorxiv.org/content/10.1101/2020.02.14.949164v1.abstract)<br>
+[How computational modeling can force theory building in psychological science](https://psyarxiv.com/rybh9/)<br>
+[Object responses are highly malleable, rather than invariant, with changes in object appearance](https://www.nature.com/articles/s41598-020-61447-8)<br>
+[If mathematical psychology did not exist we would need to invent it: A case study in cumulative theoretical development](https://psyarxiv.com/ygbjp/)<br>
+[Context effects on smooth pursuit and manual interception of a disappearing target](https://journals.physiology.org/doi/full/10.1152/jn.00217.2017)<br>
+[Visuomotor Interactions and Perceptual Judgments in Virtual Reality Simulating Different Levels of Gravity](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7039824/)<br>
+[Parietal Cortex Integrates Object Orientation and Saccade Signals to Update Grasp Plans](https://www.biorxiv.org/content/10.1101/758532v2.full)<br>
+[Are words pre-activated probabilistically during sentence comprehension?](https://psyarxiv.com/2atrh/)<br>
+[Active inference under visuo-proprioceptive conflict: Simulation and empirical results](https://www.nature.com/articles/s41598-020-61097-w)<br>
+[No Vergence Size Constancy](https://twitter.com/LintonVision/status/1232664685222223873)<br>
+[Effect of Cutaneous Feedback on the Perception of Virtual Object Weight during Manipulation](https://www.nature.com/articles/s41598-020-58247-5)<br>
+[When vision lags, motor prediction follows](https://www.biorxiv.org/content/10.1101/2020.02.13.937235v1?fbclid=IwAR1CuV15uNaPy88tGa_eG9ZSXnqekf_P7KoyrPBVH1g4EEC3u3_GLFTnS-I)<br>
+[Does Human Vision Triangulate Absolute Distance](https://twitter.com/LintonVision/status/1223263211891449857)<br>
+[A Bayesian and efficient observer model explains concurrent attractive and repulsive history biases in visual perception](https://www.biorxiv.org/content/10.1101/2020.01.22.915553v1)<br>
+[Word contexts enhance the neural representation of individual letters in early visual cortex](https://www.nature.com/articles/s41467-019-13996-4)<br>
+[Pseudoneglect is reliable across time but not task](https://psyarxiv.com/4xe5m)
+[A neural basis of probabilistic computation in visual cortex](https://www.nature.com/articles/s41593-019-0554-5)<br>
 <br>
+
 
 ## LGBTIQA+ & gender issues
 [Website of PRISMA Ciencia](prismaciencia.org)<br>
@@ -55,6 +105,17 @@
 [Merriam Webster adds "they" as singular pronoun](https://www.merriam-webster.com/dictionary/they)<br>
 [Supporting sex workers is feminist](https://aeon.co/ideas/lolita-understood-that-some-sex-is-transactional-so-did-i)<br>
 [Geniusses-genii-geni are 100% overrated](https://medium.com/@ReadMoreScience/sorry-but-male-geniuses-are-replaceable-8cbd53a8c2df)<br>
+[Fuck transphobic dog whistles, aka LGB Alliance is a hate group](https://rayyaghul.wordpress.com/2020/03/10/lgba-response/)<br>
+[Ace and Aro: Understanding Differences in Romantic Attractions Among Persons Identifying as Asexual](https://t.co/v4FXTXTrd0?amp=1)<br>
+[Hypocognition and the Invisibility of Social Privilege](https://psyarxiv.com/5ge79/)<br>
+[Truvada Whores & Social Stigma](https://twitter.com/joealey/status/1227996995442311168)<br>
+[The Queers and their troubled relationship with sports](https://twitter.com/GabrielJMartin/status/1227664720720691200)<br>
+[LGBT Discrmination in the Health Care System](https://twitter.com/NovaSzokaMD/status/1227351275832061956)<br>
+[The P600 for singular "they": How the brain reacts when Johndecides to treat themselves to sushi](https://psyarxiv.com/hwzke)<br>
+[Puberty blockers can be 'life-saving' drugs for trans teens, study shows](https://www.cnn.com/2020/01/23/health/transgender-puberty-blockers-suicide-study/index.html)<br>
+[On the gender of an unknown bear](https://djnavarro.net/post/on-the-gender-of-an-unknown-bear/)<br>
+["Rude" reviews have real fucked-up consequences](https://twitter.com/RCoombsScience/status/1213498527290155010)<br>
+[Let trans people use their chosen names, god dammit](https://twitter.com/b_jorges/status/1211673149319909377)<br>
 <br>
 
 ## Odds and ends
@@ -67,6 +128,12 @@
 [Early career setbacks can augment future impact](https://twitter.com/dashunwang/status/1179056054484819969)<br>
 [If people who dont need cars dont use cars, cities become more accessible for those who do](https://twitter.com/cathleenogrady/status/1177184354726031361)<br>
 [Laziness Does Not Exist](https://humanparts.medium.com/laziness-does-not-exist-3af27e312d01)<br>
-
+[Explaining Beauty with Cats](https://www.youtube.com/watch?v=7Nw58U7U_O0&feature=youtu.be)<br>
+[Sleeping is hard and that's okay](https://twitter.com/syedmoinhassan/status/1234169466994536450)<br>
+[Not Sleeping is hard, but you might not even notice](https://twitter.com/phirephoenix/status/1232327593526988801)<br>
+[Competition in Science suuuuucks](https://twitter.com/annemscheel/status/1230875510529515520)<br>
+[Colonialism suuuuuucks](https://twitter.com/briandavidearp/status/1218757735476531201)<br>
+[The stability flexibility tradeoff and the dark side of details](https://www.biorxiv.org/content/10.1101/2020.01.03.894014v1)<br>
+[The Whore on Christmas](https://t.co/24XxG2snY3?amp=1)<br>
 
 ---

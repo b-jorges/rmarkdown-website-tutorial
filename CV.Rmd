@@ -1,7 +1,7 @@
 ---
 output:
-  pdf_document:
-    toc: yes
+#  pdf_document:
+#    toc: yes
   html_document:
     fig_pos: H
     includes:
@@ -27,7 +27,7 @@ output:
 
 <br>
 
-If you prefer a PDF version of my CV press [here](https://github.com/b-jorges/rmarkdown-website-tutorial/raw/gh-pages/CV.pdf) to download.
+If you prefer a PDF version of my CV, press [here](https://github.com/b-jorges/rmarkdown-website-tutorial/raw/gh-pages/CV.pdf) to download.
 
 # CURRICULUM VITAE
 
