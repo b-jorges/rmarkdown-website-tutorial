@@ -9,5 +9,5 @@
 - Jörges, B., Hagenfeld, L., & López-Moliner, J. (2018). The use of visual cues in gravity judgements on parabolic motion. Vision Research, 149, 47–58. https://doi.org/10.1016/J.VISRES.2018.06.002
   - Downloadable freely here: https://www.biorxiv.org/content/biorxiv/early/2019/02/12/547497.full.pdf
 - Jörges, B., & López-Moliner, J. (2019). Earth-Gravity Congruent Motion Benefits Visual Gain For Parabolic Trajectories. BioArxiv, 547497. https://doi.org/10.1101/547497
-
+- Jörges, B., & López-Moliner, J. (2020). Characterizing the Strong Earth Gravity Prior. PsyArXive, 1–19. https://doi.org/10.31234/osf.io/exp93
 ---
