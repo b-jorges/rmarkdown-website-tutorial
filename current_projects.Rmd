@@ -9,7 +9,7 @@
 <br>
 
 # Current Projects
-Sorted chronologically by the time since I, eh, looked into them for the last time. Sort of.
+Sorted chronologically by the last time  I, eh, looked into them. Sort of.
 <br>
 
 ## Self-Motion in microgravity
@@ -29,7 +29,7 @@ You can also check the video walkthrough of [our VSS poster](https://www.youtube
 
 ## Power analyses for psychophysical designs
 
-Sample size planning is hard. We tend to rely on heuristics ("10 participants for a within-participant design, 30 participants per group for a between-participants design"), which is usually fine, butttt ... let's do it in a principled way? I'm working on an R-based guide for conducting power analyses for psychophysical two-alternative forced-choice design. Everything is available [on GitHub](https://github.com/b-jorges/Data-Analysis-and-Power-Simulations-GLMM), and I am working on a primer in the shape of a ... paper.
+Sample size planning is hard. We tend to rely on heuristics ("10 participants for a within-participant design, 30 participants per group for a between-participants design"), which is usually fine, butttt ... let's do it in a principled way? I'm working on an R-based guide for conducting power analyses for psychophysical two-alternative forced-choice designs. Everything is available [on GitHub](https://github.com/b-jorges/Data-Analysis-and-Power-Simulations-GLMM), and I am working on a primer in the shape of a ... paper.
 
 
 ## Do humans have an internal model of air drag?
