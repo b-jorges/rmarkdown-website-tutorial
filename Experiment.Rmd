@@ -8,16 +8,17 @@
 <br>
 
 # Do you want to participate in our research?
-We are currently looking for participants for a paid study.
+We are currently looking for participants for a paid study in VR.<br>
+<img src="images/VR.PNG" width="300px"><br>
 <br>
 
 ### The project
 We are looking at how humans perceive the speed of objects in their environment. You will be judging the speed of objects that move across the scene in front of you. You can view a short clip from the experiment [here (on YouTube)](https://youtu.be/cchYev56eYU).
 <br>
 
-### The pragmatics
+### Practicalities
 - *VR headset required*, must connect to a PC
-- 30 CAD compensation for your time, paid as amazon gift card (I know amazon is the devil, but ...)
+- 30 CAD compensation for your time, paid as amazon gift card (I know amazon is the devil in-corporate, but ...)
 - About 1 hour and 30 minutes in length (including setup, listening to instructions, some breaks etc.)
 - [Sign up here (Google Forms)](https://docs.google.com/forms/d/e/1FAIpQLSeVPxxBYJ6X0safNZkp7OFCsUjpt1gkTZWiTg0Ac18o1hzp-Q/viewform?usp=sf_link) 
 
