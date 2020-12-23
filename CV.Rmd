@@ -33,7 +33,7 @@ If you prefer a PDF version of my CV, press [here](https://github.com/b-jorges/r
 
 <br>
 
-## Personal & Contact Data
+### Personal & Contact Data
 
 <div class="column-left">
 Name: <br>
@@ -72,7 +72,7 @@ German <br>
 
 
 
-## Education and Academic Positions
+### Education and Academic Positions
 
 
 <div class="row">
@@ -136,7 +136,7 @@ Degree awarded: Bachelor of Arts with an average grade of 1.3 (on a scale from �
 <br>
 
 
-## Research focus area
+### Research focus area
 
 My research is focused on the role of internalized knowledge of earth gravity in visual perception and the interaction between self-motion and the visual perception of objects in our environment.
 
@@ -144,7 +144,7 @@ I have furthermore a strong interest in Philosophy of Science and I am a defende
 
 <br>
 
-## Conferences and Workshops
+### Conferences and Workshops
 
 - Poster presentation in Visual Perception entitled “Incomplete Compensation for Visual Self-Motion in the Perception of Object Velocity" presented at 
   - the 2020 Annual Meeting of the vision Science Society (VSS 2020)  
@@ -168,7 +168,7 @@ I have furthermore a strong interest in Philosophy of Science and I am a defende
 
 <br>
 
-## Publications
+### Publications
 
 - Jörges, B., & López-Moliner, J. (2019). Earth-Gravity Congruent Motion Facilitates Ocular Control for Pursuit of Parabolic Trajectories. Scientific Reports, 9(1), 1–13. https://doi.org/10.1038/s41598-019-50512-6
 
@@ -178,13 +178,13 @@ I have furthermore a strong interest in Philosophy of Science and I am a defende
 
 - Jörges, B., & López-Moliner, J. (2017). Gravity as a Strong Prior: Implications for Perception and Action. Frontiers in Human Neuroscience, 11(203). https://doi.org/10.3389/fnhum.2017.00203
 
-### Currently under Review
+#### Currently under Review
 
 - Jörges, B., Harris, L. (Forthcoming). Object Speed Perception During Lateral Self-Motion. Attention, Perception and Psychophysics. Stage one Registered Report.
 
 <br>
 
-## Administrative Experience
+### Administrative Experience
 
 - Head of the Organizing Committee for PRISMA Conference 2020 on Afective and Sexual Diversity in STEM in Madrid, Spain
 
@@ -205,14 +205,14 @@ I have furthermore a strong interest in Philosophy of Science and I am a defende
 
 <br>
 
-## Collaborations and Internships
+### Collaborations and Internships
 
 
 - PhD Research Internships with Myrka Zago at Santa Lucia Foundation, Rome, Italy, developing a project on motion time discrimination for gravitational parabolic movement (July – October 2017 and September/October 2018)
 
 <br>
 
-## Funding
+### Funding
 
 - Travel Award ACI 2017-2 issued by the Institute of Neuroscience, University of Barcelona, Spain, for participation in the European Conference for Visual Perception 2018 in Berlin, Germany
 
@@ -220,7 +220,7 @@ I have furthermore a strong interest in Philosophy of Science and I am a defende
 
 <br>
 
-## Professional Memberships
+### Professional Memberships
 
 - Vision Sciences Society
 
@@ -232,7 +232,7 @@ I have furthermore a strong interest in Philosophy of Science and I am a defende
 
 <br>
 
-## Further Skills and Information
+### Further Skills and Information
 
 - German (Native), English/Spanish/Portuguese (near Native), Catalan/Italian (Proficient), French (Basic knowledge)
 

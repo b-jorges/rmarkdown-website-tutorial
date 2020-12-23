@@ -11,7 +11,7 @@
 # Interesting Links
 <br>
 
-## Statistics & Open Science
+### Statistics & Open Science
 [Equivalence testing for Mixed Models](https://pedermisager.netlify.com/post/mixed_model_equivalence/)<br>
 [Zotero plugin that shows PubPeer comments](https://github.com/PubPeerFoundation/pubpeer_zotero_plugin)<br>
 [R package for browser-based behavioural experiments](https://github.com/djnavarro/jaysire)<br>
@@ -65,7 +65,7 @@
 [A R package for simulating data sets](https://twitter.com/LisaDeBruine/status/1211322100360925184)<br>
 <br>
 
-## To-Read List
+### Vision Science To-Read List
 [Is there empirical support for probabilistic mental representations? A case within visual perception](https://psyarxiv.com/4ap3f/)<br>
 [Ten simple rules for the computational modeling of behavioral data](https://elifesciences.org/articles/49547v1)<br>
 [How to generate Hypotheses?](https://docs.lib.purdue.edu/cgi/viewcontent.cgi?article=1197&context=jps)<br>
@@ -97,7 +97,7 @@
 <br>
 
 
-## LGBTIQA+ & gender issues
+### LGBTIQA+ & gender issues
 [Website of PRISMA Ciencia](prismaciencia.org)<br>
 [Women speak less if men speak first](https://twitter.com/GrrlScientist/status/940546904114499584)<br>
 [Philosophy Tube – Queer](https://www.youtube.com/watch?v=5Hi6j2UXEZM)<br>
@@ -118,7 +118,7 @@
 [Let trans people use their chosen names, god dammit](https://twitter.com/b_jorges/status/1211673149319909377)<br>
 <br>
 
-## Odds and ends
+### Ends and odds
 [Screen use & development](https://theconversation.com/stop-worrying-about-screen-time-its-your-childs-screen-experience-that-matters-118610)<br>
 [Mindfulness & Capitalism](https://www.theguardian.com/lifeandstyle/2019/jun/14/the-mindfulness-conspiracy-capitalist-spirituality)<br>
 [Visualization of the MYRIAD of cognitive biases going on in ours brains](https://twitter.com/jayvanbavel/status/1188454749445722112/photo/1)<br>

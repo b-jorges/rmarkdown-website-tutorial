@@ -3,7 +3,7 @@
 
 <br>
 
-# Papers
+## Papers
 
 - Jörges, B., & López-Moliner, J. (2017). Gravity as a Strong Prior: Implications for Perception and Action. Frontiers in Human Neuroscience, 11(203). https://doi.org/10.3389/fnhum.2017.00203
 - Jörges, B., Hagenfeld, L., & López-Moliner, J. (2018). The use of visual cues in gravity judgements on parabolic motion. Vision Research, 149, 47–58. https://doi.org/10.1016/J.VISRES.2018.06.002
@@ -11,6 +11,5 @@
 - Jörges B, López-Moliner J (2020) Determining mean and standard deviation of the strong gravity prior through simulations. PLOS ONE 15(8): e0236732. https://doi.org/10.1371/journal.pone.0236732
   - Downloadable freely here: https://www.biorxiv.org/content/10.1101/547497v2
 - Jörges, B., & López-Moliner, J. (2019). Earth-Gravity Congruent Motion Facilitates Ocular Control for Pursuit of Parabolic Trajectories. Scientific Reports, 9(1), 1–13. https://doi.org/10.1038/s41598-019-50512-6
-
 
 ---
