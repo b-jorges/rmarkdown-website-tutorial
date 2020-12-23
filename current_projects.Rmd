@@ -5,7 +5,6 @@
 #     toc_float: true
 #     fig_pos: "H"
 ---
-
 <br>
 
 # Current Projects
