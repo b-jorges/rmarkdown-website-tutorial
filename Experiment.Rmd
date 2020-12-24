@@ -9,7 +9,7 @@
 
 # Do you want to participate in our research?
 We are currently looking for participants for a paid study in VR.<br>
-<img src="images/VRwoman.JPEG" width="300px"><br>
+<img src="images/VRwoman.jpeg" width="300px"><br>
 <br>
 
 ### The project
