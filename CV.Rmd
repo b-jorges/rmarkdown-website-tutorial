@@ -37,22 +37,23 @@ If you prefer a PDF version of my CV, press [here](https://github.com/b-jorges/r
 
 <div class="column-left">
 Name: <br>
-Address: <br>
+Pronouns: <br>
+Resident of: <br>
 Telephone: <br>
 Email address: <br>
-Nationality: <br>
-Date and place of birth: <br>
+Twitter:<br>
 </div>
 
 
 
 <div class="column-right">
 Björn Jörges <br>
-211 Queen Street East, Apt 1, Toronto M5A 1A2, Canada <br>
+he/him <br>
+Toronto, Ontario, Canada <br>
 +1 647 550 2495 <br>
 [bjoerges@yorku.ca](mailto:bjoerges@yorku.ca) <br>
-German <br>
-23 of June 1989, Schweinfurt, Germany <br>
+[b_jorges](https://twitter.com/b_jorges)<br>
+
 </div>
 
 <br>
@@ -135,111 +136,159 @@ Degree awarded: Bachelor of Arts with an average grade of 1.3 (on a scale from �
 
 <br>
 
-
 ### Research focus area
 
-My research is focused on the role of internalized knowledge of earth gravity in visual perception and the interaction between self-motion and the visual perception of objects in our environment.
+My research is focused on the role of vestibular cues for visual perception and the interaction between self-motion and the visual perception of object motion in our environment.
 
-I have furthermore a strong interest in Philosophy of Science and I am a defender of Open Science practices, as well as a proud member of the LGBTQ+ community.
-
-<br>
-
-### Conferences and Workshops
-
-- Poster presentation in Visual Perception entitled “Incomplete Compensation for Visual Self-Motion in the Perception of Object Velocity" presented at 
-  - the 2020 Annual Meeting of the vision Science Society (VSS 2020)  
-  - the LGBTQ+ STEMinar 2020 at University of Birmingham, United Kingdom
-
-- Poster presentation in Visual Perception entitled “Earth gravity-congruent motion benefits pursuit gain for parabolic trajectories” presented at 
-  - the 2019 Annual Meeting of the Vision Sciences Society (VSS 2019)
-  - the LGBTQ+ STEMinar 2019 at the Institute of Physics, London, United Kingdom
-  
-- Poster presentation in Visual Perception entitled “Moderate Influence of Certainty about Target Size on Visual Gravity Judgements” at the 2018 Annual Meeting of the Vision Sciences Society (VSS 2018)
-
-- Oral presentation entitled “Challenges of LGBTQ+ persons in Academia” at the 1st LGBTQ+ in STEM Day at University of Barcelona
-
-- Poster Presentation in Visual Perception entitled “Decision Variables in Visual Gravity Judgements: Evidence from Simulating the Decision Process” at the 40th European Conference on Visual Perception (ECVP 2017)
-
-- Poster presentation in Philosophy of Science entitled “Nothing New under the Sun: Problem of Induction still not Solved” at the Middle European Interdisciplinary Conference in Cognitive Science 2017
-
-- Poster presentation in Visual Perception entitled “Temporal derivative of the elevation angle as a cue for visually perceived gravity” at the 2017 Annual Meeting of the Vision Sciences Society
-
-- Oral Presentation in Terror Management Theory entitled “Do Scientific Convictions Serve as a Buffer against Death Anxiety?” at the Workshop on Experimental Philosophy of the Berlin School of Mind and Brain
+I have furthermore a strong interest in Philosophy of Science and I am a defender of Open Science practices, as well as a proud member and supporter of the LGBTIQA2S+ community.
 
 <br>
 
 ### Publications
 
-- Jörges, B., & López-Moliner, J. (2019). Earth-Gravity Congruent Motion Facilitates Ocular Control for Pursuit of Parabolic Trajectories. Scientific Reports, 9(1), 1–13. https://doi.org/10.1038/s41598-019-50512-6
+Jörges, B., Harris, L. R. (2020). Object speed perception during lateral self-motion. Attention, Perception and Psychophysics. Attention, Perception & Psychophysics. Stage 1 Registered Report (in principle acceptance obtained, data collection pending)
 
+Jörges, B., & López-Moliner, J. (2020). Determining mean and standard deviation of the strong gravity prior through simulations. PLoS ONE 15(8): e0236732. https://doi.org/10.1371/journal.pone.0236732
 
-- Jörges, B., Hagenfeld, L., & López-Moliner, J. (2018). The use of Visual Cues in Gravity Judgements on Parabolic Motion. Vision Research, 149, 47–58. https://doi.org/10.1016/J.VISRES.2018.06.002
+Jörges, B., & López-Moliner, J. (2019). Earth-gravity congruent motion facilitates ocular control for pursuit of parabolic trajectories. Scientific Reports, 9(1), 1–13. https://doi.org/10.1038/s41598-019-50512-6
 
+Jörges, B., Hagenfeld, L., & López-Moliner, J. (2018). The use of visual cues in gravity judgements on parabolic motion. Vision Research, 149, 47–58. https://doi.org/10.1016/J.VISRES.2018.06.002
 
-- Jörges, B., & López-Moliner, J. (2017). Gravity as a Strong Prior: Implications for Perception and Action. Frontiers in Human Neuroscience, 11(203). https://doi.org/10.3389/fnhum.2017.00203
-
-#### Currently under Review
-
-- Jörges, B., Harris, L. (Forthcoming). Object Speed Perception During Lateral Self-Motion. Attention, Perception and Psychophysics. Stage one Registered Report.
+Jörges, B., & López-Moliner, J. (2017). Gravity as a strong prior: Implications for perception and action. Frontiers in Human Neuroscience, 11(203). https://doi.org/10.3389/fnhum.2017.00203
 
 <br>
 
-### Administrative Experience
+### Conferences and Workshops
 
-- Head of the Organizing Committee for PRISMA Conference 2020 on Afective and Sexual Diversity in STEM in Madrid, Spain
+Jörges, B., Harris, L. R., (2021, Februarz 16-17) In presence of a visual-vestibular conflict, the visual perception of object velocity is biased and less precise during self-motion [Poster Presentation]. Vestibular Oriented Research Meeting 2021, Virtual Meeting (accepted).
 
+Jörges, B., López-Moliner, J. (2021, January 8) A probabilistic mental representation of earth gravity to predict object motion in our environment [Poster Presentation] LGBTQ+ STEMinar 2021, Virtual Meeting (accepted).
 
-- Director for Science and Research at the Spanish Association for LGBTIQA+ Individuals in Science, Technology and Innovation PRISMA (2019 until now)
+Jörges, B., Bury, N., McManus, M., Allison, R., Jenkin, M., & Harris, L. R. (2020, December 14-17) Sex and/or gender differences in the perception of distance and self-motion [Oral Presentation]. 7th International Symposium on Visually Induced Motion Sensations, Virtual Meeting.
 
+Jörges, B., Bury, N., McManus, M., Allison, R., Jenkin, M., & Harris, L. R. (2020, October 5-7) The perception of visually simulated self-motion is altered by body posture [Data Blitz talk]. 3rd Interdisciplinary Navigation Symposium, Virtual Meeting.
 
-- Member of the 3rd PhD Workshop of the Institute of Neuroscience (2018) PhD committee at University of Barcelona in Barcelona, Spain
+Jörges, B., Bury, N., McManus, M., Allison, R., Jenkin, M., & Harris, L. R. (2020, November 16) The Perception of Travelled Distance in Microgravity [Poster Session]. PRISMA Conference 2020, Universidad Complutense de Madrid, Madrid, Spain & Online.
 
+Jörges, B., Bury, N., McManus, M., Allison, R., Jenkin, M., & Harris, L. R. (2020, August 26 & 28) The Perception of Travelled Distance in Microgravity [Poster Session]. STEM Village Virtual Symposium, Online
 
-- Main Organizer of the 1st LGBTQ+ in STEM Day at University of Barcelona, in Barcelona, Spain (2018)
+Jörges, B. & Harris, L. R. (2020, May 15-20) Incomplete compensation for visual self-motion in the perception of object velocity [Poster Session]. 2020 Annual Meeting of the Vision Science Society, St. Pete’s Beach, Florida, USA (online conference)
 
+Jörges, B. & Harris, L. R. (2020, May 1–3) Incomplete compensation for self-motion in the visual perception of object velocity during a visual-vestibular conflict [Poster Session]. 2020 Vestibular-Oriented Research Meeting, York University, Toronto, Canada (accepted; conference cancelled)
 
-- Member of the 2nd PhD Workshop of the Institute of Neuroscience (2017) PhD committee at University of Barcelona in Barcelona, Spain
+Jörges, B. & Harris, L. R. (2020, January 10) Incomplete compensation for visual self-motion in the perception of object velocity [Poster Session]. LGBTQ+ STEMinar 2020, University of Birmingham, Birmingham, United Kingdom
 
+Jörges, B. & López-Moliner, J. (2019, May 17-22) Earth-Gravity Congruent Motion Facilitates Ocular Control for Pursuit of Parabolic Trajectories [Poster Session]. Vision Science Society, St. Pete’s Beach, Florida, USA
 
-- Member of the Council of the Department of Cognition, Development and Psychology of Education (starting 2016) at University of Barcelona in Barcelona, Spain
+Jörges, B. & López-Moliner, J. (2019, January 11) Earth-Gravity Congruent Motion Facilitates Ocular Control for Pursuit of Parabolic Trajectories [Poster Session]. LGBTQ+ STEMinar, Institute for Physics, London, United Kingdom
+
+Jörges, B. (2018, July 5) Challenges of LGBTQ+ Persons in Academia [Oral Presentation]. LGBTQ+ in STEM Day 2018, University of Barcelona, Barcelona, Spain
+
+Jörges, B., Hagenfeld, L. & López-Moliner, J. (2018, May 18-23) Moderate Influence of Certainty about Target Size on Visual Gravity Judgements [Poster Session]. 2018 Annual Meeting of the Vision Sciences Society, St. Pete Beach, Florida, USA
+
+Jörges, B. & López-Moliner, J. (2017, August 27-31) Decision Variables in Visual Gravity Judgements: Evidence from Simulating the Decision Process [Poster Session]. European Conference on Visual Perception 2017, Berlin, Germany
+
+Jörges, B. (2017, June 22) Nothing New under the Sun: Problem of Induction Still not Solved [Poster Session]. Middle European Interdisciplinary Conference in Cognitive Science 2017, Budapest, Hungary
+
+Jörges, B. & López-Moliner, J. (2017, May 19-24) Temporal derivative of the elevation angle as a cue for visually perceived gravity [Poster Session]. Annual Meeting of the Vision Sciences Society, St. Pete Beach, Florida, USA
+
+Jörges, B. & López-Moliner, J. (2016, November 30 - December 1) Temporal derivative of the elevation angle as a cue for visually perceived gravity [Poster Session]. 2nd PhD Workshop of the Institute of Neuroscience 2016, University of Barcelona, Barcelona, Spain
+
+Jörges, B., Hoogland, D., & Fischer, B. (2016, November 18-19) Do Scientific Convictions Serve as a Buffer against Death Anxiety? [Oral Presentation]. 2016 Workshop on Experimental Philosophy of the Berlin School of Mind and Brain, Berlin, Germany
 
 <br>
 
-### Collaborations and Internships
+### Organizing and Leadership Experience
 
+Member of the Vision Science Society’s Student/Postdoc Advisory Committee (2020–2022)
 
-- PhD Research Internships with Myrka Zago at Santa Lucia Foundation, Rome, Italy, developing a project on motion time discrimination for gravitational parabolic movement (July – October 2017 and September/October 2018)
+Director for Research and Conferences in the Spanish Association for LGBTIQA+ Individuals in Science, Technology and Innovation PRISMA (2019–present); activities include:
+
+-	Lead writer on a Whitepaper on the concepts “Sex” and “Gender” and the benefits of so called “Self-ID laws” for transgender people (2020)
+-	Lead writer on a grant proposal to study the situation of LGBTIQA+ people working in Science, Technology and Innovation in Spain (2020)
+-	Member of the Organizing Committee for PRISMA Conference 2020 on LGBTIQA+ Diversity in Science, Technology and Innovation, November 2020, Madrid, Spain (2019-2020)
+
+Member of the 3rd PhD Workshop of the Institute of Neuroscience (2018) PhD committee at University of Barcelona in Barcelona, Spain
+
+Main Organizer of the 1st LGBTQ+ in STEM Day at University of Barcelona, in Barcelona, Spain (2018)
+
+Member of the 2nd PhD Workshop of the Institute of Neuroscience (2017) PhD committee at University of Barcelona in Barcelona, Spain
+
+Member of the Council of the Department of Cognition, Development and Psychology of Education (2016-2019) at University of Barcelona in Barcelona, Spain
+
+<br>
+
+### Teaching and Mentoring
+Mentoring of graduate and undergraduate students (John Kim, Meaghan McManus, Rachel Phan) in the Harrislab, York University, Toronto, Canada (2020)
+
+Practical part of a seminar on Basics of Visual Perception (10-12/2017 and 10-12/2018)
+
+<br>
+
+### Internships, Summer Schools and other Training
+
+Selected participant in 4th Summer School on Statistical Methods for Linguistics and Psychology, Bayesian Inference track, University of Potsdam, Potsdam, Germany (September 7–11 2020)
+
+Attendee at the PsychoPy Workshop, York University, Toronto (2019, November 18)
+
+Attendee at the science advocacy workshop “Standing Up for Science”, Barcelona, Spain (2018, November 30)
+
+PhD Research Internships with Myrka Zago at Santa Lucia Foundation, Rome, Italy, developing a project on motion time discrimination for gravitational parabolic object motion (July–October 2017 and September/October 2018)
 
 <br>
 
 ### Funding
 
-- Travel Award ACI 2017-2 issued by the Institute of Neuroscience, University of Barcelona, Spain, for participation in the European Conference for Visual Perception 2018 in Berlin, Germany
+Travel Award ACI 2017-2 (400 EUR) issued by the Institute of Neuroscience, University of Barcelona, Spain, for participation in the European Conference for Visual Perception 2018 in Berlin, Germany
 
-- PhD scholarship “Ajuts per a la contractació de personal 753 investigador novell (FI-2016)” from the Catalan goverment for a period of three years (2016 – 2019)
+PhD scholarship “Ajuts per a la contractació de personal 753 investigador novell (FI-2016)” (14400 EUR/year, plus a 3000 EUR allowance for professional development activities) from the Catalan government for a period of three years (2016 – 2019)
+
+ERASMUS scholarship (600 EUR) for an exchange to Universidade do Porto, Porto, Portugal (2010)
+
+ERASMUS scholarship (480 EUR) for an exchange to Universidad Pablo de Olavide, Seville, Spain (2009/2010)
 
 <br>
+
 
 ### Professional Memberships
 
-- Vision Sciences Society
+[Vision Sciences Society](https://www.visionsciences.org/)
 
-- Institute of Neuroscience, University of Barcelona
+[PRISMA](./PRISMA.html) – Asociación para la Diversidad Afectivo-Sexual y de Género en Ciencia, Tecnología e Innovación
 
-- [PRISMA](./PRISMA.html) – Asociación para la Diversidad Afectivo-Sexual y de Género en Ciencia, Tecnología e Innovación
-
-- Out in Science, Technology, Engineering, and Mathematics (oSTEM)
+[Out in Science, Technology, Engineering, and Mathematics (oSTEM)](https://www.ostem.org/)
 
 <br>
 
-### Further Skills and Information
+### Media Appearances
+Interview about the importance of queer perspectives in Science, Technology and Innovation [in the Spanish online newspaper “El Salto Diario”](https://www.elsaltodiario.com/paradoja-jevons-ciencia-poder/la-diversidad-en-la-ciencia-espanola) (September 2019)
 
-- German (Native), English/Spanish/Portuguese (near Native), Catalan/Italian (Proficient), French (Basic knowledge)
+Author of several publications on the Cognitive Science blog Cognitive.Cat (2014 & 2015)
+<br>
 
-- Data Analysis in R (Proficient), Experimental Control Flows in Python/PsychoPy/Unity+C# (Proficient)
+### Skills
+Languages: German (Native), English/Spanish/Portuguese (near Native), Catalan/Italian (Proficient), French (Basic knowledge)
 
-- Open Science workflows (Preregistration, Registered Reports, Open Data and Open Code with Open Science Foundation and GitHub)
+Data analysis: R (Expert), Julia (Proficient)
 
-- Member of the LGBT+ sports organization Panteres Grogues (2013 – 2019) in Barcelona, Spain, including participation as player in the 2nd Division of the Catalan Volleyball League (2016 – 2019)
+Experimental Control Flows: Unity + C# (Expert), Python/PsychoPy (Proficient)
+
+Data Management and Code Versioning: Git/GitHub (Proficient), Open Science Foundation (Competent)
+
+<br>
+
+### Non-Academic Professional Experience
+Freelance Translator (English, Spanish and Portuguese into German) for internal and customer-facing business communication, often working with tight deadlines (March 2014 – March 2016), including the German translation of the self-help book “Rewiring the Soul: Finding the Possible Self“ by Gabriella Kortsch, PhD
+
+Foreign Language Specialist, Webmaster and Marketing Writer at Keramik-im-Hof, Salz, Germany (July 2012 – September 2015)
+
+Translation of Portuguese Government Declarations for the Political Economy of Reforms SFB 884, University of Mannheim (December 2010 – August 2011)
+
+<br>
+
+### Further Information
+Member of the LGBTIQA2S+ volleyball league Toronto Spartan Volleyball League (starting 2020)
+
+Member of the LGBTQ+ sports organization Panteres Grogues (2013 – 2019) in Barcelona, Spain, including participation as competitive player in the 2nd Division of the Catalan Volleyball League (2016 – 2019)
 
 ---
