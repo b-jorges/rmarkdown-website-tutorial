@@ -21,9 +21,13 @@ Here a little [presentation on some preliminary space data](https://www.youtube.
 
 
 ### Prediction of motion during self-motion
+
 <img src="images/selfmotion.png" width="300px">
+
 <br>
+
 <font size="2"> A screenshot from our experiment</font>
+
 <br>
 
 So it seems that humans misperceive the velocity of targets in their environment both less accurately and less precisely when they are moving themselves. But do these changes translate to biases in prediction? It's quite likely that, when we observe motion and judge it incorrectly, then our predictions should reflect these misestimations. But let's find out!
