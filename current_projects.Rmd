@@ -21,6 +21,10 @@ Here a little [presentation on some preliminary space data](https://www.youtube.
 
 
 ### Prediction of motion during self-motion
+<img src="images/Astronauts.png" width="300px">
+<br>
+<font size="2"> Astronaut David Saint-Jacques while doing our experiment in space. You can watch him [talk about our project here (YouTube)](https://www.youtube.com/watch?v=v8uW3xXy1No&ab_channel=CanadianSpaceAgency)</font><br>
+
 <img src="images/selfmotion.png" width="300px">
 <br>
 <font size="2"> A screenshot from our experiment</font><br>
