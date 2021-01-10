@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>JuliaSpeed.utf8</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">HOME</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="CV.html">CV</a>
+</li>
+<li>
+  <a href="current_projects.html">Current Projects</a>
+</li>
+<li>
+  <a href="papers.html">Papers</a>
+</li>
+<li>
+  <a href="PRISMA.html">PRISMA</a>
+</li>
+<li>
+  <a href="Interesting-Links.html">Interesting Links</a>
+</li>
+<li>
+  <a href="Experiment.html">Participate in our research</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+
+</div>
+
+
+<p><br></p>
+<div id="comparing-julia-and-r-for-the-fitting-of-generalized-linear-mixed-models" class="section level1">
+<h1>Comparing Julia and R for the fitting of Generalized Linear Mixed Models<br></h1>
+<p><br></p>
+<p><em><strong>TLDR:</strong> Julia is supposed to be faster than R for pretty much everything. I tried out a couple of different optimizers and configurations for some GLMMs and Julia really isn’t that much faster than the best R options. Actually, in my context (power analyses via simulations), Julia doesn’t seem to be better than R at all.</em><br><br></p>
+<p>I have been working on some power-analyses-through-simulations that require me to fit Generalized Linear Mixed Models. Since I am working with not-small datasets (10000-30000 observations) it takes A WHILE to simulate and analyze the 200 datasets I want to get a reasonable power estimate. And even more so, if I want to simulate the power for several combinations of number of trials and number of participants. <br><br> So I started to look into Julia which I understand is marketing itself as a faster alternative to R for statistics. The syntax and all is simple enough if you know some R, so I shed only a moderate amount of tears et al. while translating parts of my R scripts into Julia. The result – that is by no means pretty – can be found here. Simultaneously, I looked into optimizing the GLMER fitting process with R and found that using the optimizer implementations from the package nloptwrap over the built-in optimizers from the lmer package actually speeded up the process by quite a bit. So I thought I’d pit Julia and these faster R implementations against each other to see just how much of an advantage Julia would provide in terms of fitting durations.<br><br> I also found that using different optimizers could lead to vastly different p value approximations, so I checked that out systematically, too. I wouldn’t usually use p values with GLMMs, but computing bootstrapped confidence intervals etc. is just not feasible for power analyses that require me to simulate and analyze these huge datasets maybe 2000 times overall. It would take weeks, no matter what language I use. Satterthwaite-approximated p values are, if they work more or less, a good way to evaluate significance in these simulated datasets quickly. For my research (see further below for a little introduction), I need to analyze both main affects and interaction effects, and therefore I also need p values for main effects and interaction affects.<br><br></p>
+<div id="wait-why-are-you-doing-this-the-background" class="section level2">
+<h2>Wait, why are you doing this? – The background</h2>
+<p>I have been working on an introduction to power analyses via simulations adapted to my area, Vision Science, and more specifically adapted to a group of methods called Psychophysics. Psychophysics studies “the relation between stimulus and sensation”, in other wordsx: How do we perceive stuff? In practice, it means that I’m putting a VR helmet on my participants, show them two balls flying around in a virtual environment and ask them which of the two balls were faster. Lots and lots and lots of times. One of the balls would usually have the same speed all throughout the experiment. Let’s call this one the “comparison” or “reference stimulus”. The speed of the other ball can vary across the experiment. Now the thing is that analyzing data from these so called “two-alternative forced-choice tasks” is challenging. Usually, we fit so called “psychometric functions”. They look like this:</p>
+<p><img src="images/PsychometricFunction.jpg" width="400px"> <br></p>
+<p>On the x axis you have the difference in stimulus strength between one stimulus and the other. For example, when I simulate the same physical speed for both balls, that would be 0 on the x axis. Then on the y axis, we have the proportion of responses “the test stimulus was faster”. These proportions tend to lay on something resembling a Cumulative Gaussian function, which is why we often fit such a function to our data to describe the performance of our participants. When the curve is very steep (which means, the standard deviation of the cumulative Gaussian is very low), that means that the participant is very good at distinguishing the speed of the balls. And the mean of the Cumulative Gaussian would correspond to the strength of the test stimulus the participant perceives as equivalent to the comparison stimulus.</p>
+</div>
+<div id="which-models-did-i-run" class="section level2">
+<h2>Which models did I run?<br></h2>
+<p>The exact specifications in terms of fixed and random effects are up for debate, but not really the relevant thing here.<br></p>
+<div id="in-r" class="section level4">
+<h4>In R:</h4>
+<pre class="r"><code>Model = glmer(cbind(Yes, Total - Yes) ~ 
+        ConditionOfInterest*Difference + 
+            (ConditionOfInterest+Difference| ID) + 
+            (Difference| StandardValues), 
+        family = binomial(link = &quot;logit&quot;),
+        data = Psychometric,
+        nAGQ = 0,
+        glmerControl(optimizer = &quot;Nelder_Mead&quot;))</code></pre>
+<p>We vary this base model by comparing all different optimizers, with <code>glmerControl(optimizer = "bobyqa")</code>, <code>glmerControl(optimizer = "nloptwrap")</code> and <code>glmerControl(optimizer = "Nelder_Mead")</code>, and the nAGQ option which can take the values <code>nAGQ = 0</code> and <code>nAGQ = 1</code>.<br> <br></p>
+</div>
+<div id="in-julia" class="section level4">
+<h4>In Julia:</h4>
+<pre class="r"><code>formula = @formula(Answer ~ Difference*ConditionOfInterest + 
+                            (Difference + ConditionOfInterest |ID) + 
+                            (Difference|StandardValues));
+Model = GeneralizedLinearMixedModel(formula, Psychometric, Binomial())</code></pre>
+<p>The default optimizer is BOBYQA, and we can use Nelder-Mead instead with this line:</p>
+<pre class="r"><code>Model.optsum.optimizer = :LN_NELDERMEAD</code></pre>
+<p>When fitting the model, we can switch between the <code>fast=true</code> and the <code>fast=slow</code> conditions, which correspond to <code>nAGQ = 0</code> and <code>nAGQ = 1</code>, respectively.</p>
+<pre class="r"><code>Fit = fit!( Model_Julia_NeldMeader_AGP0, fast=true)</code></pre>
+<p><br></p>
+</div>
+</div>
+<div id="what-did-i-find-out" class="section level2">
+<h2>What did I find out?</h2>
+<p>I compared different optimizers (Nelder-Mead from lmer, BOBYQA from lmer, BOBYQA from nloptr, Nelder-Mead from the MixedModels.jl package in Julia, BOBYQA from the MixedModels.jl package) and with nAPQ = 0 and nAQP = 1 in R, as well as fast = 0 and fast = 1 in Julia (which are the same underlying changes to the optimization process that I don’t understand, nor aspire to understand – for now). My dependent variables are the fitting duration as well as the false positive rates when a true effect was absent.<br><br></p>
+<div id="false-positives" class="section level4">
+<h4>False positives</h4>
+<p>First the false positive rates because, well, we can’t even consider methods that gives us inflated false positive rates:</p>
+<p><img src="images/FalsePositives.jpg" width="800px"> <br> This figure shows heatmaps of where these p values fall. A concentration of orange or even red in the left part in the upper two panels is bad, because they indicate that these methods came up with lots of false positives. The little numbers on the right of each panel indicate the false positive rates for the upper. For the main effects (“Accuracy”), everything is fine. For the interaction, however, oh boy. Lots of false positives for, really, most of the optimizers. The good ones are those models I fitted with the <code>nAQP = 1</code>/<code>fast = 0</code> options, both in R and in Julia. I also used Likelihood Ratio Tests to see what would happen if I compared two bad models (with nAQP = 0 in R), and it turns out that that’s a viable option. But that of course entails fitting two models (one test model and one null model), that is, twice the duration and .. meh. Let’s stick to the good <code>nAQP = 1</code> models! <br><br></p>
+</div>
+<div id="model-fits" class="section level4">
+<h4>Model fits</h4>
+<p>Is this false positive weirdness due to lacking model fits?</p>
+<p><img src="images/AICs.jpg" width="800px"> <br> These are AIC(Model) – AIC(R: Nelder-Mead, slow). So the one with the highest AIC (= worst model fit) is Julia: BOBYQA, slow. But that’s one of the ones that has an alright false positive rate.<br><br></p>
+</div>
+<div id="speed" class="section level4">
+<h4>Speed</h4>
+<p>Let’s see which of the good ones are the fastest:</p>
+<p><img src="images/Speed.jpg" width="800px"> <br></p>
+<p>Soooo … among the configurations that provide the acceptable false positive rates, the nloptr implementation of the BOBYQA optimizer with nAQP = 1 is the fastest. The likelihood ratio test over two models fitted with nAQP = 0 with nloptr BOBYQA is slightly behind. All Julia implementations are actually <em>slower</em> than the nloptr BOBYQA implementation. So Julia really isn’t useful for our purpose (currently). <br><br></p>
+</div>
+</div>
+<div id="conclusions" class="section level2">
+<h2>Conclusions</h2>
+<p>Main thing: For the fitting of the GLMMs, Julia isn’t more useful than R. Slightly less, even, because currently it doesn’t give an advantage in fitting durations with regards to R.<br> <br> <em>Some adjacent things:</em> <br></p>
+<ul>
+<li>Somehow, and I’m not the right person to ask why, the nAGP/fast settings can make a huge difference in Satterthwaite-approximated p values for interactions. So huge that with nAGP = 0/fast = true, we get way more false positives than we should, but agan, only for interactions. Main effects are fine. Does that also translate to more robust ways of assessing significance? I have tried, but I guess someone should.<br></li>
+<li>Not treated in this post, but: model specifications can make a huge difference for approximated p values, with too few random effects often leading to inflated p values for interactions. Again, main effects are mostly fine. I’m currently working on something where we look at that in a bit more detail.<br></li>
+<li>Julia is still cute and I’m happy I learned some! &lt;3 <br></li>
+</ul>
+</div>
+</div>
+
+<html>
+<footer role="contentinfo" id="site-footer">
+<small><p class="copyright">&#169; 2019,
+		This webpage was created using <a href="http://www.r-project.org">R</a> with <a href="http://rmarkdown.rstudio.com">RMarkdown</a> and hosted on <a href="http://github.com">Github</a> based on <a href="https://github.com/jules32/rmarkdown-website-tutorial"> jules32/rmarkdown-website-tutorial</a> project. </small></p>
+</footer>
+</html>
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
