@@ -22,7 +22,7 @@ Here a little [presentation on some preliminary space data](https://www.youtube.
 
 
 ### Prediction of motion during self-motion
-<img src="images/Astronauts.png" width="300px">
+<img src="images/lawl.png" width="300px">
 <br>
 <font size="2"> A screenshot from our experiment</font><br>
 
