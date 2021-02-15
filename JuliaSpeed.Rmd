@@ -94,7 +94,7 @@ Soooo … among the configurations that provide the acceptable false positive ra
 
 ## Conclusions
 
-Main thing: For the fitting of the GLMMs, Julia doesn't seem to be more useful than R? *But* that is pretty much bound to change as the Julia ~eco-system~ (ugh I hate this word) grows and maybe faster implementations for these optimizers become available. <br>
+Main thing: For the fitting of the GLMMs (at least the type of GLMMs I am using), Julia doesn't seem to be more useful than R? *But* that is pretty much bound to change as the Julia ~eco-system~ (ugh I hate this word) grows and maybe faster implementations for these optimizers become available. In fact, maybe there already is ~such thing~? Or if not, maybe someone might be inclined to make ~such thing~? <br>
 <br>
 But as you may have realized, I'm not a pro-programmer, and much less so for Julia, so maybe I just messed up the code? If anyone wants to check, that would be terrific!
 <br>
@@ -102,4 +102,4 @@ _Some adjacent things:_ <br>
 
 -	Somehow, and I’m not the right person to ask why, the nAGP/fast settings can make a huge difference in Satterthwaite-approximated p values for interactions. So huge that with nAGP = 0/fast = true, we get way more false positives than we should, but again, only for interactions. Main effects are fine. Does that also translate to more robust ways of assessing significance (e.g. bootstrapped confidence intervals)? I haven't tried, but I guess someone should.<br>
 -	Not treated in this post, but: model specifications can make a huge difference for approximated p values, with too few random effects often leading to inflated false positive rates for interactions. Again, main effects are mostly fine. I’m currently working on something where we look at that in a bit more detail.<br>
--	Julia is still cute and I’m happy I learned some! <3 <br>
+-	Julia (and MixedModels.jl!) are awesome and I’m happy I learned some! <3 <br>
