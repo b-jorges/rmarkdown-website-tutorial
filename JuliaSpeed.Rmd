@@ -94,7 +94,7 @@ Soooo … among the configurations that provide the acceptable false positive ra
 
 ## Conclusions
 
-Main thing: For the fitting of the GLMMs (at least the type of GLMMs I am using), Julia doesn't seem to be more useful than R? *But* that is pretty much bound to change as the Julia ~eco-system~ (ugh I hate this word) grows and maybe faster implementations for these optimizers become available. In fact, maybe there already is ~such thing~? Or if not, maybe someone might be inclined to make ~such thing~? <br>
+Main thing: For the fitting of the GLMMs (at least the type of GLMMs I am using), Julia doesn't seem to be more useful than R? *But* that is pretty much bound to change as the Julia ~ eco-system ~ (ugh I hate this word) grows and maybe faster implementations for these optimizers become available. In fact, maybe there already is ~such thing~? Or if not, maybe someone might be inclined to make ~such thing~? <br>
 <br>
 But as you may have realized, I'm not a pro-programmer, and much less so for Julia, so maybe I just messed up the code? If anyone wants to check, that would be terrific!
 <br>
