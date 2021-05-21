@@ -320,9 +320,15 @@ $(document).ready(function () {
 <p>Probability is the probability to judge that the big target was faster (put in as binary choices on each trial); SelfmotionProfile is a categorical variable with the values “Static”, “Same Direction”, “Opposite Directions”; Difference is the difference between the velocity of the big target and the velocity of the ball cloud. The fixed effect “SelfmotionProfile” would correspond to how much the self-motion condition impacts the PSE (by shifting the whole function left/right), and the interaction between “SelfmotionProfile” and “Difference” would correspond to how much the self-motion condition impacts the JND (by making the function steeper/less steep).</p>
 <p>A picture of how these psychometric functions generally look like (in case a non-psychophysicist statsy person sees this):</p>
 <p><img src="images/PsychometricFunction.jpg" width="200px"> <br></p>
-<p>The results I get with this model don’t really make sense, and they are also just <em>fully</em> inconsistent with my beautiful beautiful plots (which I made by fitting psychometric functions – cummulative Gaussians – and extracting PSEs and JNDs from those).</p>
-<p>Now when I use the speed of the ball cloud (which is variably adjusted according to the PEST staircase) as variable in the model instead of Difference, the results do make sense and are consistent with the plots.</p>
-<p>Now the big question: Whyyyyyyyy? By subtracting the speed of the big target, shouldn’t I just be shifting everything to the left and center it around zero (ish)? E.g., the impact of “SelfmotionProfile” on accuracy and precision shouldn’t be affected by that at all?</p>
+<p>The problem is: the results I get with this model don’t really make sense, and they are also just <em>fully</em> inconsistent with my beautiful beautiful plots (which I made by fitting psychometric functions – cummulative Gaussians – and extracting PSEs and JNDs from those).</p>
+<p>Now when I use the speed of the ball cloud (which is variably adjusted according to the PEST staircase) as variable in the model instead of the difference between the speed of the ball cloud and the speed of the big target …</p>
+<pre class="r"><code>glmer(Probability ~ SelfmotionProfile * Speed_BallCloud + 
+                    (Speed_BallCloud | Participant) + 
+                    (Speed_BallCloud | Speed_BigBall), 
+        family = binomial(link = &quot;probit&quot;),
+        data = Data)</code></pre>
+<p>… the results do make sense and are consistent with the plots.</p>
+<p>Now my big question: Whyyyyyyyy? By subtracting the speed of the big target, shouldn’t I just be shifting everything to the left and center it around zero (ish)? E.g., the impact of “SelfmotionProfile” on accuracy and precision shouldn’t be affected by that at all?</p>
 </div>
 
 <html>

@@ -30,9 +30,18 @@ A picture of how these psychometric functions generally look like (in case a non
 <img src="images/PsychometricFunction.jpg" width="200px">
 <br>
 
-
 The problem is: the results I get with this model don’t really make sense, and they are also just *fully* inconsistent with my beautiful beautiful plots (which I made by fitting psychometric functions – cummulative Gaussians – and extracting PSEs and JNDs from those).
 
-Now when I use the speed of the ball cloud (which is variably adjusted according to the PEST staircase) as variable in the model instead of the difference between the speed of the ball cloud and the speed of the big target, the results do make sense and are consistent with the plots.
+Now when I use the speed of the ball cloud (which is variably adjusted according to the PEST staircase) as variable in the model  instead of the difference between the speed of the ball cloud and the speed of the big target ... 
+
+```{r analysis2, results = 'hide', error=FALSE, eval=FALSE}
+glmer(Probability ~ SelfmotionProfile * Speed_BallCloud + 
+                    (Speed_BallCloud | Participant) + 
+                    (Speed_BallCloud | Speed_BigBall), 
+        family = binomial(link = "probit"),
+        data = Data)
+```
+
+... the results do make sense and are consistent with the plots.
 
 Now my big question: Whyyyyyyyy? By subtracting the speed of the big target, shouldn’t I just be shifting everything to the left and center it around zero (ish)? E.g., the impact of “SelfmotionProfile” on accuracy and precision shouldn’t be affected by that at all?
