@@ -11,7 +11,7 @@
 
 
 
-<title>Question.utf8</title>
+<title>finished_projects.utf8</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -306,29 +306,38 @@ $(document).ready(function () {
 
 
 <p><br></p>
-<div id="weird-glmm-behavior" class="section level1">
-<h1>Weird GLMM behavior …<br></h1>
+<div id="finished-projects" class="section level1">
+<h1>Finished Projects</h1>
 <p><br></p>
-<p>I’m stats-y analyzing some psychophysical data per GLMM with a probit link function. You can see a sequence from the experient <a href="https://youtu.be/cchYev56eYU">here (on YouTube)</a>.</p>
-<p>The big ball can have one out of two speeds (and one out of two directions), and the speed of the ball cloud is chosen dynamically based on a PEST staircase. While the big ball is moving across the screen, participants experience visual self-motion in the same or opposite direction as the target stimulus or no self-motion at all. They had to judge on each trial whether the big target was faster or the ball cloud.</p>
-<p>I was originally using the following formula for the GLMM:</p>
-<pre class="r"><code>glmer(Probability ~ SelfmotionProfile * Difference + 
-                    (Difference | Participant) + 
-                    (Difference | Speed_BigBall), 
-        family = binomial(link = &quot;probit&quot;),
-        data = Data)</code></pre>
-<p>Probability is the probability to judge that the big target was faster (put in as binary choices on each trial); SelfmotionProfile is a categorical variable with the values “Static”, “Same Direction”, “Opposite Directions”; Difference is the difference between the velocity of the big target and the velocity of the ball cloud. The fixed effect “SelfmotionProfile” would correspond to how much the self-motion condition impacts the PSE (by shifting the whole function left/right), and the interaction between “SelfmotionProfile” and “Difference” would correspond to how much the self-motion condition impacts the JND (by making the function steeper/less steep).</p>
-<p>A picture of how these psychometric functions generally look like (in case a non-psychophysicist statsy person sees this):</p>
-<p><img src="images/PsychometricFunction.jpg" width="200px"> <br></p>
-<p>The problem is: the results I get with this model don’t really make sense, and they are also just <em>fully</em> inconsistent with my beautiful beautiful plots (which I made by fitting psychometric functions – cummulative Gaussians – and extracting PSEs and JNDs from those).</p>
-<p>Now when I use the speed of the ball cloud (which is variably adjusted according to the PEST staircase) as variable in the model instead of the difference between the speed of the ball cloud and the speed of the big target …</p>
-<pre class="r"><code>glmer(Probability ~ SelfmotionProfile * Speed_BallCloud + 
-                    (Speed_BallCloud | Participant) + 
-                    (Speed_BallCloud | Speed_BigBall), 
-        family = binomial(link = &quot;probit&quot;),
-        data = Data)</code></pre>
-<p>… the results do make sense and are consistent with the plots.</p>
-<p>Now my big question: Whyyyyyyyy? By subtracting the speed of the big target, shouldn’t I just be shifting everything to the left and center it around zero (ish)? E.g., the impact of “SelfmotionProfile” on accuracy and precision shouldn’t be affected by that at all?</p>
+<div id="speed-estimation-during-visual-self-motion" class="section level3">
+<h3>Speed estimation during (visual) self-motion</h3>
+<p><img src="images/lawl.png" width="300px"> <br> <font size="2"> A screenshot from our experiment</font><br></p>
+<p>The perception of speed can be biased during the visual perception of self-motion. Check out the details <a href="https://link.springer.com/article/10.3758/s13414-021-02372-4">in the paper</a>.</p>
+<p>You can also check out my <a href="https://www.youtube.com/watch?v=WH0uq6iocoU&amp;ab_channel=Bj%C3%B6rnJ%C3%B6rges">Talk at VSS 2021</a>, which is pretty much the final story! <br> <br></p>
+</div>
+<div id="power-analyses-for-psychophysical-designs" class="section level3">
+<h3>Power analyses for psychophysical designs</h3>
+<p>Sample size planning is hard. We tend to rely on heuristics (“10 participants for a within-participant design, 30 participants per group for a between-participants design”), which is usually fine, butttt … let’s do it in a principled way? I’m working on an R-based guide for conducting power analyses for psychophysical two-alternative forced-choice designs. Everything is available <a href="https://github.com/b-jorges/Data-Analysis-and-Power-Simulations-GLMM">on GitHub</a>, and I have also written this up <a href="https://psyarxiv.com/ack8u/">as a Preprint</a>. <br> <br></p>
+</div>
+<div id="does-earth-gravity-conformant-motion-facilitate-motion-duration-estimation" class="section level3">
+<h3>Does earth-gravity conformant motion facilitate motion duration estimation?</h3>
+<p>It has been shown that earth gravity congruent motion benefitted motion duration estimates for 2D motion in front of a pictorial background. We would expect the same for more naturalistic stimuli (parabolic motion in 3D in a rich environment). That is not what we found: rather than for the earth gravity-concordant parabolas, precision was highest for a control condition in which the tangential speed of the ball was kept constant. Have a look <a href="https://www.nature.com/articles/s41598-021-86428-3">at the paper</a> or listen to <a href="https://www.youtube.com/watch?v=gnFFbNUeLy0&amp;ab_channel=Bj%C3%B6rnJ%C3%B6rges">a little presentation I did on the matter</a>. <br> <br></p>
+</div>
+<div id="we-track-motion-more-successfully-with-our-eyes-when-it-unfolds-according-to-earth-gravity" class="section level3">
+<h3>We track motion more successfully with our eyes when it unfolds according to earth gravity</h3>
+<p>ONE: An internalized representation of gravity (or <a href="https://www.frontiersin.org/articles/10.3389/fnhum.2017.00203/full">strong gravity prior</a>) helps us predict motion in our environment TWO: Eye movements are partially guided by predictions EQUALS: We should track trajectories more successfully when the object moves according to earth gravity.</p>
+<p>And, PLOT TWIST, that’s what we found.</p>
+<p><a href="https://www.nature.com/articles/s41598-019-50512-6">More in the paper (:</a> <br> <br></p>
+</div>
+<div id="how-precise-are-we-in-perceiving-visual-gravity-from-parabolic-motion-what-decision-variables-do-we-use" class="section level3">
+<h3>How precise are we in perceiving visual gravity from parabolic motion? What decision variables do we use?</h3>
+<p>We’re pretty at judging gravity: Weber Fractions between 13% and &gt;30%. The rate of change of the elevation angle seems to play a pretty important role, but also the represented size of the object and the visual angle it occupies.</p>
+<p><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=es&amp;user=4YxOOiIAAAAJ&amp;citation_for_view=4YxOOiIAAAAJ:u5HHmVD_uO8C">More ~ información ~ in the paper.</a> <br> <br></p>
+</div>
+<div id="review-on-the-evidence-around-an-internal-representation-of-gravity" class="section level3">
+<h3>Review on the evidence around an internal representation of gravity</h3>
+<p>Yeah, uh, what the heading says. Lots of evidence that we represent and use earth gravity to make judgements on time-to-contact and other stuff. We also talk about how it might fit in with a Bayesian framework of perception. <a href="https://www.frontiersin.org/articles/10.3389/fnhum.2017.00203/full">Published as “Gravity as a Strong Prior: Implications for Perception and Action”</a> in a one of the incredibly prestigious Frontiers journal but whatev’s, I still like it!</p>
+</div>
 </div>
 
 <html>

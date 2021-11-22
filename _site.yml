@@ -6,14 +6,14 @@ navbar:
       href: CV.html
     - text: "Current Projects"
       href: current_projects.html
+    - text: "Published Projects"
+      href: finished_projects.html
     - text: "Papers"
       href: papers.html
     - text: "PRISMA"
       href: PRISMA.html
     - text: "Interesting Links"
       href: Interesting-Links.html
-    - text: "Participate in our research"
-      href: Experiment.html
 output_dir: "."
 output:
   html_document:

@@ -5,7 +5,11 @@
 
 ## Publications
 
-Jörges, B., Harris, L. R. (2020). Object speed perception during lateral self-motion. Attention, Perception and Psychophysics. Attention, Perception & Psychophysics. Stage 1 Registered Report (in principle acceptance obtained, data collection pending)
+Jörges, B., Harris, L.R. Object speed perception during lateral visual self-motion. Atten Percept Psychophys (2021). https://doi.org/10.3758/s13414-021-02372-4
+
+Jörges, B. (2021). Data Analysis and Power Simulations with General Linear Mixed Modelling for Psychophysical Data – A Practical , R-Based Guide. PsyArXiv. https://doi.org/10.31234/osf.io/ack8u
+
+Jörges, B., La Scaleia, B., López-Moliner, J., Lacquaniti, F., & Zago, M. (2021). Perceptual judgments of duration of parabolic motions. Scientific Reports, 11(1), 1–13. https://doi.org/10.1038/s41598-021-86428-3
 
 Jörges, B., & López-Moliner, J. (2020). Determining mean and standard deviation of the strong gravity prior through simulations. PLoS ONE 15(8): e0236732. https://doi.org/10.1371/journal.pone.0236732
 
