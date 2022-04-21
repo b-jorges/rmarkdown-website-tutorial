@@ -32,7 +32,6 @@ We had a Registered Report Protocol accepted at PLOS One and are starting (remot
 
 
 ### Motion prediction, self-motion and gravity
-We are also looking to extend the basic concept of predicting motion during self-motion by adding another component: the internal model of gravity, or [Gravity Prior](https://www.frontiersin.org/articles/10.3389/fnhum.2017.00203/full). If (1) self-motion introduces biases in motion extrapolation, and (2) we use this gravity prior to better predict motion, then self-motion should bias motion prediction less when the motion is consistent with gravity. In practice, the Gravity & Self-Motion experiment will looking something like this:<br>
-![](https://youtu.be/Z_ZoR7jAMa0)
+We are also looking to extend the basic concept of predicting motion during self-motion by adding another component: the internal model of gravity, or [Gravity Prior](https://www.frontiersin.org/articles/10.3389/fnhum.2017.00203/full). If (1) self-motion introduces biases in motion extrapolation, and (2) we use this gravity prior to better predict motion, then self-motion should bias motion prediction less when the motion is consistent with gravity. In practice, the [Gravity & Self-Motion experiment will looking something like this (on YouTube)](https://youtu.be/Z_ZoR7jAMa0).
 
 ---
