@@ -26,6 +26,13 @@ Here a little [presentation on some preliminary space data](https://www.youtube.
 
 So it seems that humans misperceive the velocity of targets in their environment both less accurately and less precisely when they are moving themselves. But do these changes translate to biases in prediction? It's quite likely that, when we observe motion and judge it incorrectly, then our predictions should reflect these misestimations. But let's find out!
 
-We are currently working on a Registered Report Protocol to be submitted to PLOS One, but meanwhile, how about you have a look at [a video of the stimulus (on YouTube)](https://youtu.be/05JA19xoieY).
+We had a Registered Report Protocol accepted at PLOS One and are starting (remote) data collection. If you have a VR headset at home and are interested to join, drop me a line. Meanwhile, how about you have a look at [a video of the stimulus (on YouTube)](https://youtu.be/f08DXernfms).
+<br>
+<br>
+
+
+### Motion prediction, self-motion and gravity
+We are also looking to extend the basic concept of predicting motion during self-motion by adding another component: the internal model of gravity, or [Gravity Prior](https://www.frontiersin.org/articles/10.3389/fnhum.2017.00203/full). If (1) self-motion introduces biases in motion extrapolation, and (2) we use this gravity prior to better predict motion, then self-motion should bias motion prediction less when the motion is consistent with gravity. In practice, the Gravity & Self-Motion experiment will looking something like this:<br>
+![](https://youtu.be/Z_ZoR7jAMa0)
 
 ---
