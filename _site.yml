@@ -1,4 +1,4 @@
-name: "R Markdown Websites Tutorial"
+name: "Personal Website"
 navbar:
   title: "HOME"
   left:
@@ -14,6 +14,8 @@ navbar:
       href: PRISMA.html
     - text: "Interesting Links"
       href: Interesting-Links.html
+    - text: "Participate in my research"
+      href: Experiment.html
 output_dir: "."
 output:
   html_document:
