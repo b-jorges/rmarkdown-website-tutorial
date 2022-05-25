@@ -18,6 +18,7 @@ We are looking at how humans predict how objects move in their environment. You 
 
 ### Practicalities
 - *VR headset required*, must connect to a PC
+- Must have Steam installed, and must have VR headset configured for use with Steam
 - 45 CAD compensation for your time, paid as amazon gift card (I know amazon is the devil in-corporate, but ...)
 - About 1 hour and 30 minutes in length (including setup, listening to instructions, some breaks etc.)
 - [Sign up here (Google Forms)](https://docs.google.com/forms/d/1gdFIRqkvFwp5ZKCGz59RL-8P9uSi0iGVwWjVON9gc10/edit) 
