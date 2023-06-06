@@ -13,7 +13,7 @@ require(cowplot)
 require(quickpsy)
 require(purrr)
 theme_set(theme_cowplot())
-setwd(dirname(rstudioapi::getSourceEditorContext()$path))
+#setwd(dirname(rstudioapi::getSourceEditorContext()$path))
 source("Utilities/Funs.R")
 ```
 
@@ -161,7 +161,7 @@ Since the function filters out presented stimulus strengths that are too extreme
 #   filter(RowNumber <= MinNumberOfTrials)
 # 
 # save(DataframeAtrevido, file = paste0(dirname(rstudioapi::getSourceEditorContext()$path),"/AreJNDsOK/DataframeAtrevido.RData"))
-load(file = paste0(dirname(rstudioapi::getSourceEditorContext()$path),"/AreJNDsOK/DataframeAtrevido.RData"))
+load(file = "DataframeAtrevido.RData")
 ```
 
 ```{r quickpsy}
@@ -175,7 +175,7 @@ load(file = paste0(dirname(rstudioapi::getSourceEditorContext()$path),"/AreJNDsO
 #     filter(parn == "p2") %>%
 #     mutate(ActualSD = SD)
 # save(FittedJNDs, file = paste0(dirname(rstudioapi::getSourceEditorContext()$path),"/AreJNDsOK/FittedJNDs.RData"))
-load(file = paste0(dirname(rstudioapi::getSourceEditorContext()$path),"/AreJNDsOK/FittedJNDs.RData"))
+load(file = "FittedJNDs.RData")
 ```
 
 Please note that, given that we simulate 100 participants, fitting the psychometric functions can take a while, so I just did that once, saved the data set and load it when needed. Same for the response data set "DataframeAtrevido".
