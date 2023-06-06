@@ -1,0 +1,28 @@
+---
+title: "Estimating JNDs based on Staircases"
+author: "Björn Jörges"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction
+
+I recently had a discussion with some coauthors about how apt staircases procedures like the PEST, which concentrate presented stimulus intensities around the PSE and often involve few trials, are to estimate JNDs. I decided to investigate the issue using simulations. The basic idea is simple: I simulate psychophysical response data based on known PSEs and JNDs, fit psychometric functions to extract JNDs and compare the fitted JNDs to the ground-truth JNDs we put into the simulations initially.
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
