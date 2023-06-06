@@ -18,6 +18,8 @@ navbar:
       href: AreJNDsOkay.html
     - text: "Bootstrapped Power Analyses"
       href: BootstrappedPowerAnalyses.html
+    - text: "Fitting GLMMs with Julia"
+      href: JuliaSpeed.html
 
 output_dir: "."
 output:
