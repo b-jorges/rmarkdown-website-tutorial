@@ -14,8 +14,9 @@ navbar:
       href: PRISMA.html
     - text: "Interesting Links"
       href: Interesting-Links.html
-    - text: "Participate in my research"
-      href: Experiment.html
+    - text: "JNDs & Staircase Procedures"
+      href: AreJNDsOkay.html
+
 output_dir: "."
 output:
   html_document:
