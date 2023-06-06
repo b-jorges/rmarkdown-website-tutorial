@@ -13,7 +13,7 @@
 
 <title>JuliaSpeed.knit</title>
 
-<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.19/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -60,6 +60,7 @@ if (window.hljs) {
 
 
 
+
 <style type = "text/css">
 .main-container {
   max-width: 940px;
@@ -80,6 +81,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -137,11 +141,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -170,8 +178,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -179,16 +187,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -232,7 +233,7 @@ $(document).ready(function () {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -260,7 +261,10 @@ $(document).ready(function () {
   <a href="Interesting-Links.html">Interesting Links</a>
 </li>
 <li>
-  <a href="Experiment.html">Participate in my research</a>
+  <a href="AreJNDsOkay.html">JNDs &amp; Staircase Procedures</a>
+</li>
+<li>
+  <a href="BootstrappedPowerAnalyses.html">Bootstrapped Power Analyses</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -279,20 +283,88 @@ $(document).ready(function () {
 
 
 <p><br></p>
-<div id="comparing-julia-and-r-for-the-fitting-of-generalized-linear-mixed-models" class="section level1">
-<h1>Comparing Julia and R for the fitting of Generalized Linear Mixed Models<br></h1>
+<div
+id="comparing-julia-and-r-for-the-fitting-of-generalized-linear-mixed-models"
+class="section level1">
+<h1>Comparing Julia and R for the fitting of Generalized Linear Mixed
+Models<br></h1>
 <p><br></p>
-<p><em><strong>TLDR:</strong> Julia is supposed to be faster than R for pretty much everything. I tried out a couple of different optimizers and configurations for some GLMMs and Julia really isn’t that much faster than the best R options.</em><br><br></p>
-<p>I have been working on some power-analyses-through-simulations that require me to fit Generalized Linear Mixed Models. Since I am working with not-small datasets (10000-30000 observations) it takes A WHILE to simulate and analyze the 200+ datasets I want to get a reasonable power estimate. And even more so, if I want to simulate the power for several combinations of number of trials and number of participants. <br><br> So I started to look into Julia which I understand is marketing itself as a faster alternative to R for statistics. The syntax and all is simple enough if you know some R, so I shed only a moderate amount of tears et al. while translating parts of my R scripts into Julia. The result – that is by no means pretty – can be found <a href="https://github.com/b-jorges/Data-Analysis-and-Power-Simulations-GLMM/blob/main/Optimizers%20and%20Approaches.ipynb">here</a>. Simultaneously, I looked into optimizing the GLMER fitting process with R and found that using the optimizer implementations from the package nloptwrap over the built-in optimizers from the lmer package actually speeded up the process by quite a bit. So I thought I’d pit Julia and these faster R implementations against each other to see just how much of an advantage Julia would provide in terms of fitting durations.<br><br> I also found that using different optimizers could lead to vastly different p value approximations, so I checked that out systematically, too. I wouldn’t usually use p values with GLMMs, but computing bootstrapped confidence intervals etc. is just not feasible for power analyses that require me to simulate and analyze these huge datasets maybe 2000 times overall. It would take weeks, no matter what language I use. Satterthwaite-approximated p values are, if they work more or less, a good way to evaluate significance in these simulated datasets quickly. For my research (see further below for a little introduction), I need to analyze both main affects and interaction effects, and therefore I also need p values for main effects and interaction affects.<br><br></p>
-<div id="wait-why-are-you-doing-this-the-background" class="section level2">
+<p><em><strong>TLDR:</strong> Julia is supposed to be faster than R for
+pretty much everything. I tried out a couple of different optimizers and
+configurations for some GLMMs and Julia really isn’t that much faster
+than the best R options.</em><br><br></p>
+<p>I have been working on some power-analyses-through-simulations that
+require me to fit Generalized Linear Mixed Models. Since I am working
+with not-small datasets (10000-30000 observations) it takes A WHILE to
+simulate and analyze the 200+ datasets I want to get a reasonable power
+estimate. And even more so, if I want to simulate the power for several
+combinations of number of trials and number of participants. <br><br> So
+I started to look into Julia which I understand is marketing itself as a
+faster alternative to R for statistics. The syntax and all is simple
+enough if you know some R, so I shed only a moderate amount of tears et
+al. while translating parts of my R scripts into Julia. The result –
+that is by no means pretty – can be found <a
+href="https://github.com/b-jorges/Data-Analysis-and-Power-Simulations-GLMM/blob/main/Optimizers%20and%20Approaches.ipynb">here</a>.
+Simultaneously, I looked into optimizing the GLMER fitting process with
+R and found that using the optimizer implementations from the package
+nloptwrap over the built-in optimizers from the lmer package actually
+speeded up the process by quite a bit. So I thought I’d pit Julia and
+these faster R implementations against each other to see just how much
+of an advantage Julia would provide in terms of fitting
+durations.<br><br> I also found that using different optimizers could
+lead to vastly different p value approximations, so I checked that out
+systematically, too. I wouldn’t usually use p values with GLMMs, but
+computing bootstrapped confidence intervals etc. is just not feasible
+for power analyses that require me to simulate and analyze these huge
+datasets maybe 2000 times overall. It would take weeks, no matter what
+language I use. Satterthwaite-approximated p values are, if they work
+more or less, a good way to evaluate significance in these simulated
+datasets quickly. For my research (see further below for a little
+introduction), I need to analyze both main affects and interaction
+effects, and therefore I also need p values for main effects and
+interaction affects.<br><br></p>
+<div id="wait-why-are-you-doing-this-the-background"
+class="section level2">
 <h2>Wait, why are you doing this? – The background</h2>
-<p>I have been working on an introduction to power analyses via simulations adapted to my area, Vision Science, and more specifically adapted to a group of methods called Psychophysics. Psychophysics studies “the relation between stimulus and sensation”, in other words: How do we perceive stuff? In practice, it means that I’m putting a VR helmet on my participants, show them two balls flying around in a virtual environment and ask them which of the two balls were faster. Lots and lots and lots of times. One of the balls would usually have the same speed all throughout the experiment. Let’s call this one the “comparison” or “reference stimulus”. The speed of the other ball can vary across the experiment. Now the thing is that analyzing data from these so called “two-alternative forced-choice tasks” is challenging. Usually, we fit so called “psychometric functions”. They look like this:</p>
+<p>I have been working on an introduction to power analyses via
+simulations adapted to my area, Vision Science, and more specifically
+adapted to a group of methods called Psychophysics. Psychophysics
+studies “the relation between stimulus and sensation”, in other words:
+How do we perceive stuff? In practice, it means that I’m putting a VR
+helmet on my participants, show them two balls flying around in a
+virtual environment and ask them which of the two balls were faster.
+Lots and lots and lots of times. One of the balls would usually have the
+same speed all throughout the experiment. Let’s call this one the
+“comparison” or “reference stimulus”. The speed of the other ball can
+vary across the experiment. Now the thing is that analyzing data from
+these so called “two-alternative forced-choice tasks” is challenging.
+Usually, we fit so called “psychometric functions”. They look like
+this:</p>
 <p><img src="images/PsychometricFunction.jpg" width="400px"> <br></p>
-<p>On the x axis you have the difference in stimulus strength between one stimulus and the other. For example, when I simulate the same physical speed for both balls, that would be 0 on the x axis. Then on the y axis, we have the proportion of responses that “the test stimulus was faster”. So the lower the value, the more often participants chose the comparison ball as faster, and the higher the value, the more often participants chose the test ball as faster. These proportions tend to lay on something resembling a Cumulative Gaussian function, which is why we often fit such a function to our data to describe the performance of our participants – as a so called “Psychometric Function”. When the curve is very steep (that is, the standard deviation of the cumulative Gaussian is very low), the participant is very good at distinguishing the speed of the balls.And the mean of the Cumulative Gaussian corresponds to the strength of the test stimulus the participant perceives as equivalent to the comparison stimulus. Say, one of the balls is pink and the other purple, we could assess to what extent the color of the balls biases our perception: maybe we have a tendency to perceive pink balls as faster, or the other way around? That would be reflected in the means of these fitted Psychometric Functions.</p>
+<p>On the x axis you have the difference in stimulus strength between
+one stimulus and the other. For example, when I simulate the same
+physical speed for both balls, that would be 0 on the x axis. Then on
+the y axis, we have the proportion of responses that “the test stimulus
+was faster”. So the lower the value, the more often participants chose
+the comparison ball as faster, and the higher the value, the more often
+participants chose the test ball as faster. These proportions tend to
+lay on something resembling a Cumulative Gaussian function, which is why
+we often fit such a function to our data to describe the performance of
+our participants – as a so called “Psychometric Function”. When the
+curve is very steep (that is, the standard deviation of the cumulative
+Gaussian is very low), the participant is very good at distinguishing
+the speed of the balls.And the mean of the Cumulative Gaussian
+corresponds to the strength of the test stimulus the participant
+perceives as equivalent to the comparison stimulus. Say, one of the
+balls is pink and the other purple, we could assess to what extent the
+color of the balls biases our perception: maybe we have a tendency to
+perceive pink balls as faster, or the other way around? That would be
+reflected in the means of these fitted Psychometric Functions.</p>
 </div>
 <div id="which-models-did-i-run" class="section level2">
 <h2>Which models did I run?<br></h2>
-<p>The exact specifications in terms of fixed and random effects are up for debate, but not really the relevant thing here.<br></p>
+<p>The exact specifications in terms of fixed and random effects are up
+for debate, but not really the relevant thing here.<br></p>
 <div id="in-r" class="section level4">
 <h4>In R:</h4>
 <pre class="r"><code>Model = glmer(cbind(Yes, Total - Yes) ~ 
@@ -303,7 +375,12 @@ $(document).ready(function () {
         data = Psychometric,
         nAGQ = 0,
         glmerControl(optimizer = &quot;Nelder_Mead&quot;))</code></pre>
-<p>We vary this base model by comparing all different optimizers, with <code>glmerControl(optimizer = "bobyqa")</code>, <code>glmerControl(optimizer = "nloptwrap")</code> and <code>glmerControl(optimizer = "Nelder_Mead")</code>, and the nAGQ option which can take the values <code>nAGQ = 0</code> and <code>nAGQ = 1</code>.<br> <br></p>
+<p>We vary this base model by comparing all different optimizers, with
+<code>glmerControl(optimizer = "bobyqa")</code>,
+<code>glmerControl(optimizer = "nloptwrap")</code> and
+<code>glmerControl(optimizer = "Nelder_Mead")</code>, and the nAGQ
+option which can take the values <code>nAGQ = 0</code> and
+<code>nAGQ = 1</code>.<br> <br></p>
 </div>
 <div id="in-julia" class="section level4">
 <h4>In Julia:</h4>
@@ -311,40 +388,95 @@ $(document).ready(function () {
                             (Difference + ConditionOfInterest |ID) + 
                             (Difference|StandardValues));
 Model = GeneralizedLinearMixedModel(formula, Psychometric, Binomial())</code></pre>
-<p>The default optimizer is BOBYQA, and we can use Nelder-Mead instead with this line:</p>
+<p>The default optimizer is BOBYQA, and we can use Nelder-Mead instead
+with this line:</p>
 <pre class="r"><code>Model.optsum.optimizer = :LN_NELDERMEAD</code></pre>
-<p>When fitting the model, we can switch between the <code>fast=true</code> and the <code>fast=slow</code> conditions, which correspond to <code>nAGQ = 0</code> and <code>nAGQ = 1</code>, respectively.</p>
+<p>When fitting the model, we can switch between the
+<code>fast=true</code> and the <code>fast=slow</code> conditions, which
+correspond to <code>nAGQ = 0</code> and <code>nAGQ = 1</code>,
+respectively.</p>
 <pre class="r"><code>Fit = fit!( Model_Julia_NeldMeader_AGP0, fast=true)</code></pre>
 <p><br></p>
 </div>
 </div>
 <div id="what-did-i-find-out" class="section level2">
 <h2>What did I find out?</h2>
-<p>I compared different optimizers (Nelder-Mead from lmer, BOBYQA from lmer, BOBYQA from nloptr, Nelder-Mead from the MixedModels.jl package in Julia, BOBYQA from the MixedModels.jl package) and with nAPQ = 0 and nAQP = 1 in R, as well as fast = 0 and fast = 1 in Julia (which are the same underlying changes to the optimization process that I don’t understand, nor aspire to understand – for now). My dependent variables are the fitting duration as well as the false positive rates when a true effect was absent.<br><br></p>
+<p>I compared different optimizers (Nelder-Mead from lmer, BOBYQA from
+lmer, BOBYQA from nloptr, Nelder-Mead from the MixedModels.jl package in
+Julia, BOBYQA from the MixedModels.jl package) and with nAPQ = 0 and
+nAQP = 1 in R, as well as fast = 0 and fast = 1 in Julia (which are the
+same underlying changes to the optimization process that I don’t
+understand, nor aspire to understand – for now). My dependent variables
+are the fitting duration as well as the false positive rates when a true
+effect was absent.<br><br></p>
 <div id="false-positives" class="section level4">
 <h4>False positives</h4>
-<p>First the false positive rates because, well, we can’t even consider methods that give us inflated false positive rates:</p>
-<p><img src="images/FalsePositives.jpg" width="800px"> <br> This figure shows heatmaps of where these p values fall. A concentration of orange or even red in the left part in the upper two panels is bad, because they indicate that these methods reported back with lots of false positives. The little numbers on the right of each panel indicate the false positive rates. For the main effects (“Accuracy”), everything is fine. For the interaction, however, oh boy. Lots of false positives for, really, most of the optimizers. The good ones are those models I fitted with the <code>nAQP = 1</code>/<code>fast = 0</code> options, both in R and in Julia. I also used Likelihood Ratio Tests to see what would happen if I compared two bad models (with nAQP = 0 in R), and it turns out that that’s a viable option. But that of course entails fitting two models (one test model and one null model), that is, twice the duration and .. meh. Let’s stick to the good <code>nAQP = 1</code> models! <br><br></p>
+<p>First the false positive rates because, well, we can’t even consider
+methods that give us inflated false positive rates:</p>
+<p><img src="images/FalsePositives.jpg" width="800px"> <br> This figure
+shows heatmaps of where these p values fall. A concentration of orange
+or even red in the left part in the upper two panels is bad, because
+they indicate that these methods reported back with lots of false
+positives. The little numbers on the right of each panel indicate the
+false positive rates. For the main effects (“Accuracy”), everything is
+fine. For the interaction, however, oh boy. Lots of false positives for,
+really, most of the optimizers. The good ones are those models I fitted
+with the <code>nAQP = 1</code>/<code>fast = 0</code> options, both in R
+and in Julia. I also used Likelihood Ratio Tests to see what would
+happen if I compared two bad models (with nAQP = 0 in R), and it turns
+out that that’s a viable option. But that of course entails fitting two
+models (one test model and one null model), that is, twice the duration
+and .. meh. Let’s stick to the good <code>nAQP = 1</code> models!
+<br><br></p>
 </div>
 <div id="model-fits" class="section level4">
 <h4>Model fits</h4>
 <p>Is this false positive weirdness due to lacking model fits?</p>
-<p><img src="images/AICs.jpg" width="800px"> <br> These are AIC(Model) – AIC(R: Nelder-Mead, slow). So the one with the highest AIC (= worst model fit) is Julia: BOBYQA, slow. But that’s one of the ones that has an alright false positive rate.<br><br></p>
+<p><img src="images/AICs.jpg" width="800px"> <br> These are AIC(Model) –
+AIC(R: Nelder-Mead, slow). So the one with the highest AIC (= worst
+model fit) is Julia: BOBYQA, slow. But that’s one of the ones that has
+an alright false positive rate.<br><br></p>
 </div>
 <div id="speed" class="section level4">
 <h4>Speed</h4>
 <p>Let’s see which of the good ones are the fastest:</p>
 <p><img src="images/Speed.jpg" width="800px"> <br></p>
-<p>Soooo … among the configurations that provide the acceptable false positive rates, the nloptr implementation of the BOBYQA optimizer with nAQP = 1 is the fastest. The likelihood ratio test over two models fitted with nAQP = 0 with nloptr BOBYQA is slightly behind. All Julia implementations are actually <em>slower</em> than the nloptr BOBYQA implementation. So Julia really isn’t useful for our purpose (currently). <br><br></p>
+<p>Soooo … among the configurations that provide the acceptable false
+positive rates, the nloptr implementation of the BOBYQA optimizer with
+nAQP = 1 is the fastest. The likelihood ratio test over two models
+fitted with nAQP = 0 with nloptr BOBYQA is slightly behind. All Julia
+implementations are actually <em>slower</em> than the nloptr BOBYQA
+implementation. So Julia really isn’t useful for our purpose
+(currently). <br><br></p>
 </div>
 </div>
 <div id="conclusions" class="section level2">
 <h2>Conclusions</h2>
-<p>Main thing: For the fitting of the GLMMs (at least the type of GLMMs I am using), Julia doesn’t seem to be more useful than R? <em>But</em> that is pretty much bound to change as the Julia ~ eco-system ~ (ugh I hate this word) grows and maybe faster implementations for these optimizers become available. In fact, maybe there already is ~such thing~? Or if not, maybe someone might be inclined to make ~such thing~? <br> <br> But as you may have realized, I’m not a pro-programmer, and much less so for Julia, so maybe I just messed up the code? If anyone wants to check, that would be terrific! <br> <em>Some adjacent things:</em> <br></p>
+<p>Main thing: For the fitting of the GLMMs (at least the type of GLMMs
+I am using), Julia doesn’t seem to be more useful than R? <em>But</em>
+that is pretty much bound to change as the Julia ~ eco-system ~ (ugh I
+hate this word) grows and maybe faster implementations for these
+optimizers become available. In fact, maybe there already is ~such
+thing~? Or if not, maybe someone might be inclined to make ~such thing~?
+<br> <br> But as you may have realized, I’m not a pro-programmer, and
+much less so for Julia, so maybe I just messed up the code? If anyone
+wants to check, that would be terrific! <br> <em>Some adjacent
+things:</em> <br></p>
 <ul>
-<li>Somehow, and I’m not the right person to ask why, the nAGP/fast settings can make a huge difference in Satterthwaite-approximated p values for interactions. So huge that with nAGP = 0/fast = true, we get way more false positives than we should, but again, only for interactions. Main effects are fine. Does that also translate to more robust ways of assessing significance (e.g. bootstrapped confidence intervals)? I haven’t tried, but I guess someone should.<br></li>
-<li>Not treated in this post, but: model specifications can make a huge difference for approximated p values, with too few random effects often leading to inflated false positive rates for interactions. Again, main effects are mostly fine. I’m currently working on something where we look at that in a bit more detail.<br></li>
-<li>Julia (and MixedModels.jl!) are awesome and I’m happy I learned some! &lt;3 <br></li>
+<li>Somehow, and I’m not the right person to ask why, the nAGP/fast
+settings can make a huge difference in Satterthwaite-approximated p
+values for interactions. So huge that with nAGP = 0/fast = true, we get
+way more false positives than we should, but again, only for
+interactions. Main effects are fine. Does that also translate to more
+robust ways of assessing significance (e.g. bootstrapped confidence
+intervals)? I haven’t tried, but I guess someone should.<br></li>
+<li>Not treated in this post, but: model specifications can make a huge
+difference for approximated p values, with too few random effects often
+leading to inflated false positive rates for interactions. Again, main
+effects are mostly fine. I’m currently working on something where we
+look at that in a bit more detail.<br></li>
+<li>Julia (and MixedModels.jl!) are awesome and I’m happy I learned
+some! &lt;3 <br></li>
 </ul>
 </div>
 </div>

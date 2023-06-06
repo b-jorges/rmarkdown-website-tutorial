@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Björn Jörges" />
+
+
+<title>Bootstrapping Power Analyses?</title>
+
+<script src="site_libs/header-attrs-2.19/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">HOME</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="CV.html">CV</a>
+</li>
+<li>
+  <a href="current_projects.html">Current Projects</a>
+</li>
+<li>
+  <a href="finished_projects.html">Published Projects</a>
+</li>
+<li>
+  <a href="papers.html">Papers</a>
+</li>
+<li>
+  <a href="PRISMA.html">PRISMA</a>
+</li>
+<li>
+  <a href="Interesting-Links.html">Interesting Links</a>
+</li>
+<li>
+  <a href="AreJNDsOkay.html">JNDs &amp; Staircase Procedures</a>
+</li>
+<li>
+  <a href="BootstrappedPowerAnalyses.html">Bootstrapped Power Analyses</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore"><em>Bootstrapping</em> Power Analyses?</h1>
+<h4 class="author">Björn Jörges</h4>
+
+</div>
+
+
+<div id="what-why" class="section level3">
+<h3>What … ? Why?!</h3>
+<p>I recently wondered if it would make sense to use some kind of
+bootstrapping to conduct power analyses when you already have a good
+chunk of pilot data available. That was motivated by this project I am
+working on where we collected data from 12 participants (mainly to have
+something to present at VSS this year …). That’s already a good number,
+but the task is pretty hard and the data is quite variable, so my
+intuition is that we’ll need about 50 participants overall. Now, for
+some <a href="https://psyarxiv.com/ack8u/">other power analysis
+project</a>, I am using full-on simulations. But its a lot of work to
+simulate full data sets, and I am wondering if we could some kind of
+bootstrapping to estimate power based on the pilot data. Now there would
+of course be some <em>heavy</em> assumptioning going on – specifically
+that the pilot participants are representative of the population. But
+keeping that in mind, it <em>could</em> give us an idea, maybe. So in
+this blog post I just want to quickly see what happens when I actually
+execute this idea.</p>
+</div>
+<div id="the-procedure" class="section level3">
+<h3>The Procedure</h3>
+<p>The basic idea is that I randomly choose 30, 40, 50, 60 or 70
+participants out of my 11 pilot participants (with putting back as you
+will have guessed) and then perform the analysis over these 30, 40, 50,
+60 or 70 participants. I do that 100 or 1000 times and the fraction of
+times where the analysis comes out significant (pick your own alpha
+poison, I’ll just go with 0.05) is the power.</p>
+<p>In a different script, I have analyzed the pilot data from this
+project. You can see a <a
+href="https://twitter.com/b_jorges/status/1660881661549064193">little
+poster here on Twitter</a> just to get a general idea of what’s going
+on. I had to exclude a lot of participants/trials, so I want to only
+“bootstrap” over the one actually included in the analysis.</p>
+<pre class="r"><code>FinalData = Data %&gt;%
+  filter(!(nGoodPursuitPerCondition &lt; 10 &amp; Fixation == &quot;Pursuit&quot; &amp; 
+             Environment == &quot;Environment_Local_Info&quot;) &amp;
+           !(nGoodFixationPerCondition &lt; 10 &amp; Fixation == &quot;Fixation&quot; &amp; 
+               Environment == &quot;Environment_Local_Info&quot;)) %&gt;% 
+  filter(Good == 1) %&gt;% #only good trials
+  filter(ID %in% GoodIDs)</code></pre>
+<p>Now we follow the procedure outline above. Pick participants, run
+analysis, rinse and repeat 500 times.</p>
+<pre class="r"><code># Power_DF_Bootstrap = data.frame()
+# k = 0
+# 
+# for (nParticipants in c(20,30,40,50,60,70)){
+#   
+#   for (k in 1:100){
+#     SampledIDs = sample(GoodIDs,nParticipants,replace = TRUE)
+#     BootstrappedData = data.frame()
+#     
+#     j = 0
+#     for (i in SampledIDs){
+#       j = j+1
+#       DF_ID_Replaced = FinalData %&gt;% filter(ID == i)
+#       DF_ID_Replaced$ID = paste0(&quot;p&quot;,j)
+#       BootstrappedData = rbind(BootstrappedData, DF_ID_Replaced)
+#     }
+#     
+#     Fits_Bootstrap = (quickpsy::quickpsy(BootstrappedData, #only good participants
+#                                          x = velH_Pest, 
+#                                          k = Pest_Faster, 
+#                                          grouping = .(Environment ,Fixation,velH,ID), 
+#                                          bootstrap = &quot;none&quot;))$parini
+#     Fits_Bootstrap = cbind(Fits_Bootstrap %&gt;% 
+#                              filter(paran == &quot;p1&quot;),(Fits_Bootstrap %&gt;% 
+#                                                       filter(paran == &quot;p2&quot;))$par)
+#     colnames(Fits_Bootstrap) = c(colnames(Fits_Bootstrap)[1:5],&quot;PSE&quot;,&quot;SD&quot;)
+#     
+#     LMM = lmer(PSE/velH ~ Environment * Fixation + (velH| ID), 
+#                data = Fits_Bootstrap %&gt;% filter(SD &gt; 0 &amp; PSE &gt; 0 &amp; PSE &lt; 3 * velH))
+#     
+#     Power_DF_Bootstrap = rbind(Power_DF_Bootstrap,
+#                                data.frame(nParticipants = nParticipants, iteration = k, pvalue = summary(LMM)$coefficients[&quot;EnvironmentNo_Environment:FixationPursuit&quot;,&quot;Pr(&gt;|t|)&quot;]))
+#     print(paste0(&quot;Participants:&quot;, nParticipants))
+#     
+#     save(Power_DF_Bootstrap, file = paste0(dirname(rstudioapi::getSourceEditorContext()$path), &quot;/SavedVariables/Power_DF_Bootstrap.RData&quot;))
+#   }
+# }
+
+load(&quot;Power_DF_Bootstrap.RData&quot;)</code></pre>
+<p>Get the fraction of p &lt; 0.05:</p>
+<pre class="r"><code>alpha = 0.05
+
+Power_DF_Bootstrap = Power_DF_Bootstrap %&gt;% group_by(nParticipants) %&gt;% 
+  mutate(Power = mean(pvalue &lt; alpha))</code></pre>
+<p>Aaaaaaaaaaaaaaaaaaaand plot the power for each number of
+participants. The horizontal lines are power levels of 0.8, 0.9, and
+0.95, respectively.</p>
+<pre class="r"><code>ggplot(Power_DF_Bootstrap, aes(nParticipants,Power)) +
+  geom_line(linewidth = 1) +
+  geom_point() +
+  xlab(&quot;Number of Participants&quot;) +
+  ylab(&quot;Power&quot;) +
+  geom_hline(yintercept = 0.8, linetype=1) +
+  geom_hline(yintercept = 0.9, linetype=2) +
+  geom_hline(yintercept = 0.95, linetype=3)</code></pre>
+<p><img src="BootstrappedPowerAnalyses_files/figure-html/figure-1.png" width="672" /></p>
+<p>These power estimates seem sensible and they somewhat match those
+that I obtained using (fully) simulated data.</p>
+</div>
+<div id="what-could-this-be-good-for" class="section level3">
+<h3>What could this be good for?</h3>
+<ul>
+<li><p>Looks good in that you <em>can</em> get <em>a</em> result. If
+you’re confident that your pilot data is more or less representative of
+the population then this is a relatively quick and easy way to estimate
+how many participants you need to test to reach a certain alpha cutoff.
+<em>BUT</em> you can’t really be confident that your 10 pilot
+participants are representative enough of your population. If that was a
+good assumption you wouldn’t even need to test more people.</p></li>
+<li><p>A better use case is, in my opinion, using this method as a
+sanity check for more intricate power analysis. Power analyses that
+simulate either the data generating process in its entirety, or at least
+simulate data sets that look very much like data sets you would expect
+from real participants (<a href="https://psyarxiv.com/ack8u/">as I have
+described for psychophysical 2AFC designs</a>), are overall more
+appropriate because they allow you to set a whole bunch of parameters
+relating to biases and variability on different levels (e.g.,
+participant level vs group level). However, given all these moving
+parts, they’re also not easy to set up and may yield power estimates
+that are way off base if, e.g., variability is over- or underestimated,
+or let’s face it, there’s some bug in the code. In my preprint I
+recommend using parameter estimates from pilot data, so comparing their
+results to a power estimate that is <em>directly</em> derived from the
+pilot data can be helpful to determine whether your simulated data is as
+similar as desired to the pilot data.</p></li>
+</ul>
+</div>
+
+<html>
+<footer role="contentinfo" id="site-footer">
+<small><p class="copyright">&#169; 2019,
+		This webpage was created using <a href="http://www.r-project.org">R</a> with <a href="http://rmarkdown.rstudio.com">RMarkdown</a> and hosted on <a href="http://github.com">Github</a> based on <a href="https://github.com/jules32/rmarkdown-website-tutorial"> jules32/rmarkdown-website-tutorial</a> project. </small></p>
+</footer>
+</html>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

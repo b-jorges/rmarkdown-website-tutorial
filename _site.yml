@@ -16,6 +16,8 @@ navbar:
       href: Interesting-Links.html
     - text: "JNDs & Staircase Procedures"
       href: AreJNDsOkay.html
+    - text: "Bootstrapped Power Analyses"
+      href: BootstrappedPowerAnalyses.html
 
 output_dir: "."
 output:

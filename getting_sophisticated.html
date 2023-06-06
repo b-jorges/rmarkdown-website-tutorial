@@ -13,7 +13,7 @@
 
 <title>Time to get sophisticated</title>
 
-<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.19/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -63,6 +63,7 @@ if (window.hljs) {
 
 
 
+
 <style type = "text/css">
 .main-container {
   max-width: 940px;
@@ -83,6 +84,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -140,11 +144,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -173,8 +181,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -182,16 +190,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -308,7 +309,7 @@ div.tocify {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -336,7 +337,10 @@ div.tocify {
   <a href="Interesting-Links.html">Interesting Links</a>
 </li>
 <li>
-  <a href="Experiment.html">Participate in my research</a>
+  <a href="AreJNDsOkay.html">JNDs &amp; Staircase Procedures</a>
+</li>
+<li>
+  <a href="BootstrappedPowerAnalyses.html">Bootstrapped Power Analyses</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -355,8 +359,17 @@ div.tocify {
 </div>
 
 
-<p>There are a lot of ways to get sophisticated here, and we’re only covering a few possibilites here. See <a href="http://rmarkdown.rstudio.com/lesson-1.html">RStudio’s R Markdown lessons</a> for other R Markdown capabilities. Plus, R Markdown can render styling from Cascading Style Sheets (CSS) and Hyper Text Markup Language (HTML), which is what non-R Markdown websites use.</p>
-<p>So, Googling what you want to do and trying it in your R Markdown files is a good way to learn. Disclaimer: that’s how I’ve learned the following, so there are most definitely better and more elegant ways to do this. But here are some ideas of what you may want to do with your website.</p>
+<p>There are a lot of ways to get sophisticated here, and we’re only
+covering a few possibilites here. See <a
+href="http://rmarkdown.rstudio.com/lesson-1.html">RStudio’s R Markdown
+lessons</a> for other R Markdown capabilities. Plus, R Markdown can
+render styling from Cascading Style Sheets (CSS) and Hyper Text Markup
+Language (HTML), which is what non-R Markdown websites use.</p>
+<p>So, Googling what you want to do and trying it in your R Markdown
+files is a good way to learn. Disclaimer: that’s how I’ve learned the
+following, so there are most definitely better and more elegant ways to
+do this. But here are some ideas of what you may want to do with your
+website.</p>
 <hr />
 <div id="r-markdown-options" class="section level2">
 <h2>R Markdown options</h2>
@@ -367,7 +380,8 @@ div.tocify {
 <p>Note that on this page:</p>
 <ol style="list-style-type: decimal">
 <li>there is a Table of Contents (TOC) there on the left, and</li>
-<li>it is floating (i.e. it follows you as you scroll down and expands/collapses nicely as you click)</li>
+<li>it is floating (i.e. it follows you as you scroll down and
+expands/collapses nicely as you click)</li>
 <li>This is all done in the front matter:<br />
 </li>
 </ol>
@@ -380,9 +394,14 @@ div.tocify {
 </div>
 <div id="themes" class="section level3">
 <h3>Themes</h3>
-<p>We can change the website’s theme in <code>_site.yml</code>. Explore options here: <a href="http://rmarkdown.rstudio.com/html_document_format.html#appearance_and_style" class="uri">http://rmarkdown.rstudio.com/html_document_format.html#appearance_and_style</a>:</p>
+<p>We can change the website’s theme in <code>_site.yml</code>. Explore
+options here: <a
+href="http://rmarkdown.rstudio.com/html_document_format.html#appearance_and_style"
+class="uri">http://rmarkdown.rstudio.com/html_document_format.html#appearance_and_style</a>:</p>
 <blockquote>
-<p>Valid themes include “default”, “cerulean”, “journal”, “flatly”, “readable”, “spacelab”, “united”, “cosmo”, “lumen”, “paper”, “sandstone”, “simplex”, and “yeti”.</p>
+<p>Valid themes include “default”, “cerulean”, “journal”, “flatly”,
+“readable”, “spacelab”, “united”, “cosmo”, “lumen”, “paper”,
+“sandstone”, “simplex”, and “yeti”.</p>
 </blockquote>
 <hr />
 </div>
@@ -392,7 +411,9 @@ div.tocify {
 <div id="images" class="section level3">
 <h3>images</h3>
 <p>By default, images are displayed left-aligned.</p>
-<p><strong>Resize</strong> an image using HTML tags (side note: check out <a href="https://www.rstudio.com/resources/cheatsheets/">RStudio’s R Markdown Cheatsheet</a>):</p>
+<p><strong>Resize</strong> an image using HTML tags (side note: check
+out <a href="https://www.rstudio.com/resources/cheatsheets/">RStudio’s R
+Markdown Cheatsheet</a>):</p>
 <p>Here’s a big image:<br />
 <code>&lt;img src="images/Rmd_cheatsheet.png" width="350px"&gt;</code><br />
 <img src="images/Rmd_cheatsheet.png" width="350px"></p>
@@ -426,7 +447,8 @@ Put in your css file or directly in rmarkdown--->
 <div class="col2">
 <p><strong>Column 1</strong></p>
 <ul>
-<li>note <code>&lt;div class="col2"&gt;</code> and <code>&lt;/div&gt;</code></li>
+<li>note <code>&lt;div class="col2"&gt;</code> and
+<code>&lt;/div&gt;</code></li>
 <li>what beautiful bullet points <br> <br></li>
 </ul>
 <p><strong>Column 2</strong></p>
@@ -440,7 +462,9 @@ Put in your css file or directly in rmarkdown--->
 <center>
 <p><code>&lt;center&gt;**Here the text is centered. Here are good resources:**&lt;/center&gt;</code><br />
 <strong>Here the text is centered. Here are good resources:</strong></p>
-• <a href="http://www.w3schools.com/tags/">w3schools.com - HTML references</a> • <a href="http://www.w3schools.com/css/">w3schools.com - CSS tutorial</a> •
+• <a href="http://www.w3schools.com/tags/">w3schools.com - HTML
+references</a> • <a href="http://www.w3schools.com/css/">w3schools.com -
+CSS tutorial</a> •
 </center>
 <p><br></p>
 </div>
@@ -449,23 +473,33 @@ Put in your css file or directly in rmarkdown--->
 <p><code>&lt;font size="3" color="red"&gt;Text here!&lt;/font&gt;</code></p>
 <p><font size="3" color="red">This is red text size 3!</font><br />
 <font size="2" color="blue">This is blue text size 2!</font><br />
-<font face="verdana" color="green">This is green text in verdana!</font></p>
+<font face="verdana" color="green">This is green text in
+verdana!</font></p>
 <hr />
 </div>
 </div>
 <div id="r-code" class="section level2">
 <h2><code>R</code> code</h2>
-<p>You can execute R code each time you build your website. Even if you don’t yet know R, this is a little taste of the types of things you can do. There are two ways you’ll see R code; in-line and in a code chunk. This is from the <a href="http://r4ds.had.co.nz/r-markdown.html">R Markdown chapter in R for Data Science</a>.</p>
+<p>You can execute R code each time you build your website. Even if you
+don’t yet know R, this is a little taste of the types of things you can
+do. There are two ways you’ll see R code; in-line and in a code chunk.
+This is from the <a href="http://r4ds.had.co.nz/r-markdown.html">R
+Markdown chapter in R for Data Science</a>.</p>
 <p><img src="images/r4ds_r-markdown.png" /></p>
 <p><br></p>
 <div id="in-line" class="section level3">
 <h3>in line</h3>
-<p>Here is an example inline. The date when I last built the website is 2022-05-25. My favorite number is 13.1415927. There are 44 files and folders in our repo. This is not just text; his is executable R code that is 100% awesome!</p>
+<p>Here is an example inline. The date when I last built the website is
+2023-06-06. My favorite number is 13.1415927. There are 60 files and
+folders in our repo. This is not just text; his is executable R code
+that is 100% awesome!</p>
 <p><br></p>
 </div>
 <div id="in-a-code-chunk" class="section level3">
 <h3>in a code chunk</h3>
-<p>And here is an example of a code chunk. Let’s plot the first bit of an <code>iris</code> variable (which is a dataset that comes with base R).</p>
+<p>And here is an example of a code chunk. Let’s plot the first bit of
+an <code>iris</code> variable (which is a dataset that comes with base
+R).</p>
 <pre class="r"><code>x &lt;- iris$Sepal.Length[1:15]
 plot(x)</code></pre>
 <p><img src="getting_sophisticated_files/figure-html/plot%20iris-1.png" width="672" /></p>
@@ -474,7 +508,8 @@ plot(x)</code></pre>
 <h3>calling another file</h3>
 <div id="r-script" class="section level4">
 <h4><code>R</code> script</h4>
-<p>You can source an R script. This is a super powerful way to avoid copy-pasting your analyses. For example:</p>
+<p>You can source an R script. This is a super powerful way to avoid
+copy-pasting your analyses. For example:</p>
 <pre class="r"><code>## source an external script 
 source(&quot;advanced/my_script.R&quot;)
 
@@ -489,25 +524,36 @@ ggplot(data = my_data, aes(x = year, y = pop)) +
 </div>
 <div id="a-specific-r-script-_site.r" class="section level4">
 <h4>A specific R script: <code>_site.R</code></h4>
-<p>This is something that R Markdown websites will look for; when it exists it will give you ‘global variables’ that will be available for all pages across your site.</p>
+<p>This is something that R Markdown websites will look for; when it
+exists it will give you ‘global variables’ that will be available for
+all pages across your site.</p>
 <pre class="r"><code>source(&quot;_site.R&quot;)</code></pre>
 <p><br></p>
 </div>
 <div id="r-markdown-file" class="section level4">
 <h4>R Markdown file</h4>
-<p>You can insert separate R Markdown files too; text and code will be incorporated seamlessly into this page. This R Markdown file is considered the ‘parent’ file, and the one that is incorporated is the ‘child’ file. In the code chunk below, we’ll say <code>{r, child='advanced/important_example.Rmd'}</code>.</p>
-<p>This text comes from a separate R Markdown file – how would you ever know that this is a separate file!</p>
-<p>Here is an example of inline R code: if you round 3.1415927 you get 3.</p>
-<p>This is the end of this separate and important R Markdown child file.</p>
+<p>You can insert separate R Markdown files too; text and code will be
+incorporated seamlessly into this page. This R Markdown file is
+considered the ‘parent’ file, and the one that is incorporated is the
+‘child’ file. In the code chunk below, we’ll say
+<code>{r, child='advanced/important_example.Rmd'}</code>.</p>
+<p>This text comes from a separate R Markdown file – how would you ever
+know that this is a separate file!</p>
+<p>Here is an example of inline R code: if you round 3.1415927 you get
+3.</p>
+<p>This is the end of this separate and important R Markdown child
+file.</p>
 <p><br></p>
 </div>
 </div>
 </div>
 <div id="troubleshooting" class="section level2">
 <h2>Troubleshooting</h2>
-<p>You’ll get errors as you work; this is how you learn. These are a few things you may encounter:</p>
+<p>You’ll get errors as you work; this is how you learn. These are a few
+things you may encounter:</p>
 <ol style="list-style-type: decimal">
-<li><p>If when running <code>rmarkdown::render_site()</code> you get this error:</p>
+<li><p>If when running <code>rmarkdown::render_site()</code> you get
+this error:</p>
 <pre><code>Error in object[seq_len(ile)] : 
 object of type &#39;symbol&#39; is not subsettable</code></pre>
 <p>Go to <em>Session &gt; Restart R</em> and try again.</p></li>
@@ -515,8 +561,11 @@ object of type &#39;symbol&#39; is not subsettable</code></pre>
 <pre><code>Error in parse_block(g[-1], g[1], params.src) : duplicate label &#39;setup&#39;
 Calls: &lt;Anonymous&gt; ... process_file -&gt; split_file -&gt; lapply -&gt; FUN -&gt; parse_block
 Execution halted</code></pre>
-<p>Here you have 2 <code>R</code> code chunks named the same thing (in this case ‘setup’), you must change one of them because there cannot be two code chunks with the same name.</p></li>
-<li><p>When you get an error message you don’t understand: Copy-paste it into Google.</p></li>
+<p>Here you have 2 <code>R</code> code chunks named the same thing (in
+this case ‘setup’), you must change one of them because there cannot be
+two code chunks with the same name.</p></li>
+<li><p>When you get an error message you don’t understand: Copy-paste it
+into Google.</p></li>
 </ol>
 <center>
 <img src="images/practicalDev_googleErrorMessage.jpg" width="350px">
