@@ -1,0 +1,114 @@
+---
+title: "Lonely Random Effects and Hallucinated Fixed Effects"
+author: "Björn Jörges"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+require(lme4)
+require(lmerTest)
+```
+
+Just when you think you understand most of what there is to understand about Mixed Effect Models (and you feel all smug about it), you encounter something that challenges – don't mind me being dramatic here – everything you thought you ever knew about them.
+
+# The Lay of the Land
+
+In our little astronaut study, we collected data on the perceived traveled distance from 12 astronauts in 5 test sessions (two of them onboard the International Space Station), in three of which we tested them in two different postures (Sitting and Lying). In each test session and posture we tested participants three times in each of 10 distances. Pretty complex data but y'know, nothing a little mixed effects model can't handle.
+
+# My initial analysis
+Our hypotheses really relate only to the posture and the exposure to microgravity, so I set up the model in the following way:
+
+```{r Model}
+# Model1 <- lmer(Ratio ~ PointInTime*Posture2 + (PointInTime + Posture2 + as.factor(Distance_Real)| id),
+#                                     data = Task2_Astronauts %>%
+#                                       mutate(Posture2 = case_when(
+#                                         Posture == "Sitting" ~ "1Sitting",
+#                                         TRUE ~ Posture)),
+#                                     REML = FALSE,
+#                                     control = lmerControl(optimizer = "bobyqa",
+#                                                           optCtrl = list(maxfun = 2e5)))
+load("Model1.RData")
+```
+
+- **Ratio**: dependent variable, ratio of presented distance and response distance
+- **Posture2**: posture (Sitting, Lying, Space)
+- **PointInTime**: test session (BDC 1 (Earth), Space 1, Space 2, BDC 2 (Earth), BDC 3 (Earth))
+- **Distance_Real**: presented distance (6 to 24m in steps of 2m)
+- **id**: Participant ID
+
+Since the distance didn't really matter to us (following our hypotheses) but I still wanted to allocate variability to this source as much as warranted, I added random slopes for the presented distance (**Distance_Real**) per participant (**id**) – but not as fixed effect.
+
+# The Statistical Weirdness (?!)
+Now in principle, if you have random slopes for a certain variable per a certain grouping variable (in our case the participant), and you also have this variable as a fixed effect (like **Posture2** and **PointInTime**), the random effect slopes (of which we get one per participant) should add up to zero: the fixed effect captures group-wide effects while the random slopes per participant capture to what extent each participant differs from this average. 
+This is, to some extent, true if we look at the random slopes for Posture2 per ID:
+
+```{r ranefs1}
+Ranefs_Model1 = ranef(Model1)
+Ranefs_Model1$id$Posture2Lying
+mean(Ranefs_Model1$id$Posture2Lying)
+```
+
+However, when we look at the same thing for the difference between BDC 1 and, for example, BDC 2, we get a very different picture:
+
+```{r ranefs2}
+Ranefs_Model1 = ranef(Model1)
+Ranefs_Model1$id$`PointInTimeSession 4 (BDC 2)`
+mean(Ranefs_Model1$id$`PointInTimeSession 4 (BDC 2)`)
+```
+
+Here we see that the mean random slope for this difference contrast is about -0.11 across all 12 astronauts. Compare this to a corresponding fixed effect parameters of +0.14 for the same difference contrast:
+
+```{r fixef1}
+summary(Model1)$coef["PointInTimeSession 4 (BDC 2)",]
+```
+
+... which is, stupidly, significantly different from 0 (as per Satterthwaite-approximated p values from lmerTest). So the model basically _invents_ a significant difference by making the random effects, on average, too low and then compensating for that by raising the fixed effect parameter estimate. This of course doesn't affect the model fit because, you know, if we subtract -1000 from each of the relevant random effects but then ADD 1000 to the fixed effect, the fit should overall be the same. But of course that's, uh, bullshit because this difference is full-on _hallucinated_.
+
+# What causes this???
+
+I was super confused as to where this discrepancy was coming from but we tried a couple of things (thanks to Rob Allison) and it turns out that, when we add **Distance_Real** as a fixed effect, everything is as it should be.
+
+```{r Model2}
+# Model2 <- lmer(Ratio ~ PointInTime*Posture2 + as.factor(Distance_Real) + (PointInTime + Posture2 + as.factor(Distance_Real)| id),
+#                                     data = Task2_Astronauts %>%
+#                                       mutate(Posture2 = case_when(
+#                                         Posture == "Sitting" ~ "1Sitting",
+#                                         TRUE ~ Posture)),
+#                                     REML = FALSE,
+#                                     control = lmerControl(optimizer = "bobyqa",
+#                                                           optCtrl = list(maxfun = 2e5)))
+load("Model2.RData")
+```
+
+Posture is fine:
+
+```{r ranefs3}
+Ranefs_Model2 = ranef(Model2)
+Ranefs_Model2$id$Posture2Lying
+mean(Ranefs_Model2$id$Posture2Lying)
+```
+
+And the comparison between test sessions as well:
+
+```{r ranefs4}
+Ranefs_Model2 = ranef(Model2)
+Ranefs_Model2$id$`PointInTimeSession 4 (BDC 2)`
+mean(Ranefs_Model2$id$`PointInTimeSession 4 (BDC 2)`)
+```
+
+Accordingly, the fixed effect parameter estimate is much lower here (+0.03; notedly the sum of the mean of the random slopes and the fixed effect from **Model1**) and not hallucinatedly significant:
+
+```{r fixef2}
+summary(Model2)$coef["PointInTimeSession 4 (BDC 2)",]
+```
+
+(The same is true if we take away the random slopes for **Distance_Real** per participant, by the way.)
+
+# The morals of this story are...
+
+- Don't do random effects without fixed effects kids, _not even once_
+- Don't ever trust results that don't really match with your plots
+- No I do not understand why this is a thing – mind you, the presence or absence of a fixed effect (**Distance_Real**) affects fitted random slopes for an _unrelated variable_ (**PointInTime** for the grouping variable **id**)
+- If you have a good explanation, yes I would love to hear it.
+- An extremely simply solution would be, in my naivest of minds, to _subtract_ the average of the offending random effects (-0.11 for **PointInTime: BDC 2** per **id**) from each individual fitted random slope and then _add_ this average to the fixed effect parameter (+0.14 for **PointInTime BDC 2**) estimate (which would yield an appropriate, very likely non-significant +0.03 for the fixed effect parameter estimate for **PointInTime BDC 2**)

@@ -20,6 +20,8 @@ navbar:
       href: BootstrappedPowerAnalyses.html
     - text: "Fitting GLMMs with Julia"
       href: JuliaSpeed.html
+    - text: "Fixed Effects, Random Effects"
+      href: FixedEffectsRandomEffects.html
 
 output_dir: "."
 output:

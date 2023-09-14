@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Björn Jörges" />
+
+
+<title>Lonely Random Effects and Hallucinated Fixed Effects</title>
+
+<script src="site_libs/header-attrs-2.19/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">HOME</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="CV.html">CV</a>
+</li>
+<li>
+  <a href="current_projects.html">Current Projects</a>
+</li>
+<li>
+  <a href="finished_projects.html">Published Projects</a>
+</li>
+<li>
+  <a href="papers.html">Papers</a>
+</li>
+<li>
+  <a href="PRISMA.html">PRISMA</a>
+</li>
+<li>
+  <a href="Interesting-Links.html">Interesting Links</a>
+</li>
+<li>
+  <a href="AreJNDsOkay.html">JNDs &amp; Staircase Procedures</a>
+</li>
+<li>
+  <a href="BootstrappedPowerAnalyses.html">Bootstrapped Power Analyses</a>
+</li>
+<li>
+  <a href="JuliaSpeed.html">Fitting GLMMs with Julia</a>
+</li>
+<li>
+  <a href="FixedEffectsRandomEffects.html">Fixed Effects, Random Effects</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Lonely Random Effects and Hallucinated
+Fixed Effects</h1>
+<h4 class="author">Björn Jörges</h4>
+
+</div>
+
+
+<p>Just when you think you understand most of what there is to
+understand about Mixed Effect Models (and you feel all smug about it),
+you encounter something that challenges – don’t mind me being dramatic
+here – everything you thought you ever knew about them.</p>
+<div id="the-lay-of-the-land" class="section level1">
+<h1>The Lay of the Land</h1>
+<p>In our little astronaut study, we collected data on the perceived
+traveled distance from 12 astronauts in 5 test sessions (two of them
+onboard the International Space Station), in three of which we tested
+them in two different postures (Sitting and Lying). In each test session
+and posture we tested participants three times in each of 10 distances.
+Pretty complex data but y’know, nothing a little mixed effects model
+can’t handle.</p>
+</div>
+<div id="my-initial-analysis" class="section level1">
+<h1>My initial analysis</h1>
+<p>Our hypotheses really relate only to the posture and the exposure to
+microgravity, so I set up the model in the following way:</p>
+<pre class="r"><code># Model1 &lt;- lmer(Ratio ~ PointInTime*Posture2 + (PointInTime + Posture2 + as.factor(Distance_Real)| id),
+#                                     data = Task2_Astronauts %&gt;%
+#                                       mutate(Posture2 = case_when(
+#                                         Posture == &quot;Sitting&quot; ~ &quot;1Sitting&quot;,
+#                                         TRUE ~ Posture)),
+#                                     REML = FALSE,
+#                                     control = lmerControl(optimizer = &quot;bobyqa&quot;,
+#                                                           optCtrl = list(maxfun = 2e5)))
+load(&quot;Model1.RData&quot;)</code></pre>
+<ul>
+<li><strong>Ratio</strong>: dependent variable, ratio of presented
+distance and response distance</li>
+<li><strong>Posture2</strong>: posture (Sitting, Lying, Space)</li>
+<li><strong>PointInTime</strong>: test session (BDC 1 (Earth), Space 1,
+Space 2, BDC 2 (Earth), BDC 3 (Earth))</li>
+<li><strong>Distance_Real</strong>: presented distance (6 to 24m in
+steps of 2m)</li>
+<li><strong>id</strong>: Participant ID</li>
+</ul>
+<p>Since the distance didn’t really matter to us (following our
+hypotheses) but I still wanted to allocate variability to this source as
+much as warranted, I added random slopes for the presented distance
+(<strong>Distance_Real</strong>) per participant (<strong>id</strong>) –
+but not as fixed effect.</p>
+</div>
+<div id="the-statistical-weirdness" class="section level1">
+<h1>The Statistical Weirdness (?!)</h1>
+<p>Now in principle, if you have random slopes for a certain variable
+per a certain grouping variable (in our case the participant), and you
+also have this variable as a fixed effect (like
+<strong>Posture2</strong> and <strong>PointInTime</strong>), the random
+effect slopes (of which we get one per participant) should add up to
+zero: the fixed effect captures group-wide effects while the random
+slopes per participant capture to what extent each participant differs
+from this average. This is, to some extent, true if we look at the
+random slopes for Posture2 per ID:</p>
+<pre class="r"><code>Ranefs_Model1 = ranef(Model1)
+Ranefs_Model1$id$Posture2Lying</code></pre>
+<pre><code>##  [1] -0.005241311 -0.024258265  0.080092023 -0.091645785  0.048171712
+##  [6]  0.019932352  0.024018573 -0.043306412  0.084845389 -0.032249824
+## [11] -0.041496352  0.009501675</code></pre>
+<pre class="r"><code>mean(Ranefs_Model1$id$Posture2Lying)</code></pre>
+<pre><code>## [1] 0.002363648</code></pre>
+<p>However, when we look at the same thing for the difference between
+BDC 1 and, for example, BDC 2, we get a very different picture:</p>
+<pre class="r"><code>Ranefs_Model1 = ranef(Model1)
+Ranefs_Model1$id$`PointInTimeSession 4 (BDC 2)`</code></pre>
+<pre><code>##  [1] -0.11186842 -0.19108941 -0.13270094 -0.61690659 -0.31983742 -0.19835978
+##  [7] -0.45556264  1.13616781 -0.05930019 -0.31883011 -0.07153968 -0.06103040</code></pre>
+<pre class="r"><code>mean(Ranefs_Model1$id$`PointInTimeSession 4 (BDC 2)`)</code></pre>
+<pre><code>## [1] -0.1167381</code></pre>
+<p>Here we see that the mean random slope for this difference contrast
+is about -0.11 across all 12 astronauts. Compare this to a corresponding
+fixed effect parameters of +0.14 for the same difference contrast:</p>
+<pre class="r"><code>summary(Model1)$coef[&quot;PointInTimeSession 4 (BDC 2)&quot;,]</code></pre>
+<pre><code>##    Estimate  Std. Error          df     t value    Pr(&gt;|t|) 
+##  0.14498685  0.06541121 19.51771592  2.21654432  0.03871216</code></pre>
+<p>… which is, stupidly, significantly different from 0 (as per
+Satterthwaite-approximated p values from lmerTest). So the model
+basically <em>invents</em> a significant difference by making the random
+effects, on average, too low and then compensating for that by raising
+the fixed effect parameter estimate. This of course doesn’t affect the
+model fit because, you know, if we subtract -1000 from each of the
+relevant random effects but then ADD 1000 to the fixed effect, the fit
+should overall be the same. But of course that’s, uh, bullshit because
+this difference is full-on <em>hallucinated</em>.</p>
+</div>
+<div id="what-causes-this" class="section level1">
+<h1>What causes this???</h1>
+<p>I was super confused as to where this discrepancy was coming from but
+we tried a couple of things (thanks to Rob Allison) and it turns out
+that, when we add <strong>Distance_Real</strong> as a fixed effect,
+everything is as it should be.</p>
+<pre class="r"><code># Model2 &lt;- lmer(Ratio ~ PointInTime*Posture2 + as.factor(Distance_Real) + (PointInTime + Posture2 + as.factor(Distance_Real)| id),
+#                                     data = Task2_Astronauts %&gt;%
+#                                       mutate(Posture2 = case_when(
+#                                         Posture == &quot;Sitting&quot; ~ &quot;1Sitting&quot;,
+#                                         TRUE ~ Posture)),
+#                                     REML = FALSE,
+#                                     control = lmerControl(optimizer = &quot;bobyqa&quot;,
+#                                                           optCtrl = list(maxfun = 2e5)))
+load(&quot;Model2.RData&quot;)</code></pre>
+<p>Posture is fine:</p>
+<pre class="r"><code>Ranefs_Model2 = ranef(Model2)
+Ranefs_Model2$id$Posture2Lying</code></pre>
+<pre><code>##  [1] -0.007761663 -0.026212996  0.078095331 -0.094188657  0.046037046
+##  [6]  0.017634526  0.021538760 -0.045780320  0.082209019 -0.034956477
+## [11] -0.043927023  0.007312455</code></pre>
+<pre class="r"><code>mean(Ranefs_Model2$id$Posture2Lying)</code></pre>
+<pre><code>## [1] -6.066848e-14</code></pre>
+<p>And the comparison between test sessions as well:</p>
+<pre class="r"><code>Ranefs_Model2 = ranef(Model2)
+Ranefs_Model2$id$`PointInTimeSession 4 (BDC 2)`</code></pre>
+<pre><code>##  [1]  0.004311661 -0.073300687 -0.015951370 -0.500705246 -0.202416094
+##  [6] -0.081062358 -0.338656024  1.252857484  0.056565407 -0.202826130
+## [11]  0.045486487  0.055696870</code></pre>
+<pre class="r"><code>mean(Ranefs_Model2$id$`PointInTimeSession 4 (BDC 2)`)</code></pre>
+<pre><code>## [1] 9.127754e-13</code></pre>
+<p>Accordingly, the fixed effect parameter estimate is much lower here
+(+0.03; notedly the sum of the mean of the random slopes and the fixed
+effect from <strong>Model1</strong>) and not hallucinatedly
+significant:</p>
+<pre class="r"><code>summary(Model2)$coef[&quot;PointInTimeSession 4 (BDC 2)&quot;,]</code></pre>
+<pre><code>##   Estimate Std. Error         df    t value   Pr(&gt;|t|) 
+##  0.0282997  0.1199541 12.1321814  0.2359210  0.8174297</code></pre>
+<p>(The same is true if we take away the random slopes for
+<strong>Distance_Real</strong> per participant, by the way.)</p>
+</div>
+<div id="the-morals-of-this-story-are" class="section level1">
+<h1>The morals of this story are…</h1>
+<ul>
+<li>Don’t do random effects without fixed effects kids, <em>not even
+once</em></li>
+<li>Don’t ever trust results that don’t really match with your
+plots</li>
+<li>No I do not understand why this is a thing – mind you, the presence
+or absence of a fixed effect (<strong>Distance_Real</strong>) affects
+fitted random slopes for an <em>unrelated variable</em>
+(<strong>PointInTime</strong> for the grouping variable
+<strong>id</strong>)</li>
+<li>If you have a good explanation, yes I would love to hear it.</li>
+<li>An extremely simply solution would be, in my naivest of minds, to
+<em>subtract</em> the average of the offending random effects (-0.11 for
+<strong>PointInTime: BDC 2</strong> per <strong>id</strong>) from each
+individual fitted random slope and then <em>add</em> this average to the
+fixed effect parameter (+0.14 for <strong>PointInTime BDC 2</strong>)
+estimate (which would yield an appropriate, very likely non-significant
++0.03 for the fixed effect parameter estimate for <strong>PointInTime
+BDC 2</strong>)</li>
+</ul>
+</div>
+
+<html>
+<footer role="contentinfo" id="site-footer">
+<small><p class="copyright">&#169; 2019,
+		This webpage was created using <a href="http://www.r-project.org">R</a> with <a href="http://rmarkdown.rstudio.com">RMarkdown</a> and hosted on <a href="http://github.com">Github</a> based on <a href="https://github.com/jules32/rmarkdown-website-tutorial"> jules32/rmarkdown-website-tutorial</a> project. </small></p>
+</footer>
+</html>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
